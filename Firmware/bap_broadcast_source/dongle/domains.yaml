@@ -1,0 +1,7 @@
+default: bap_broadcast_source
+build_dir: D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle
+domains:
+  - name: bap_broadcast_source
+    build_dir: D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/bap_broadcast_source
+flash_order:
+  - bap_broadcast_source

@@ -1,0 +1,13 @@
+# Target labels
+ hci_ipc
+# Source files and their labels
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/CMakeFiles/hci_ipc
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/CMakeFiles/hci_ipc.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/CMakeFiles/hci_ipc-complete.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-build.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-configure.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-download.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-install.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-mkdir.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-patch.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/hci_ipc-prefix/src/hci_ipc-stamp/hci_ipc-update.rule

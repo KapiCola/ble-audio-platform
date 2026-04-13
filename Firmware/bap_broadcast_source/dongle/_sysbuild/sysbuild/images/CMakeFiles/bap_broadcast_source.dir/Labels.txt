@@ -1,0 +1,13 @@
+# Target labels
+ bap_broadcast_source
+# Source files and their labels
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source-complete.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-build.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-configure.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-download.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-install.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-mkdir.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-patch.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-update.rule

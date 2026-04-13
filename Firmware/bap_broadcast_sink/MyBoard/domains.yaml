@@ -1,0 +1,10 @@
+default: bap_broadcast_sink
+build_dir: D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard
+domains:
+  - name: bap_broadcast_sink
+    build_dir: D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/bap_broadcast_sink
+  - name: hci_ipc
+    build_dir: D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/hci_ipc
+flash_order:
+  - bap_broadcast_sink
+  - hci_ipc

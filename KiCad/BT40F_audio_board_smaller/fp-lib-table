@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "External_footprints")(type "KiCad")(uri "${KIPRJMOD}/Project libraries/External_footprints.pretty")(options "")(descr ""))
+)

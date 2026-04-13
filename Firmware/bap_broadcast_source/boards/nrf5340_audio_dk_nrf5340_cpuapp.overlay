@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2025 Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../app.overlay"
+
+&arduino_adc {
+	io-channel-map = <0 &adc 1>, <1 &adc 2>, <2 &adc 4>, <3 &adc 5>, <4 &adc 6>, <5 &adc 7>;
+};
+
+&comp {
+	status = "okay";
+};
+
+&ieee802154 {
+	status = "okay";
+};
+
+&nfct {
+	status = "disabled";
+};
+
+&usbd {
+	status = "disabled";
+};
+
+&i2c0 {
+	status = "disabled";
+};
+
+&spi3 {
+	status = "disabled";
+};

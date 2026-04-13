@@ -1,0 +1,32 @@
+*** Booting nRF Connect SDK v3.1.1-e2a97fe2578a ***
+*** Using Zephyr OS v4.1.99-ff8f0c579eeb ***
+[00:00:01.520,935] <inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)
+[00:00:01.520,965] <inf> bt_hci_core: HW Variant: nRF53x (0x0003)
+[00:00:01.520,996] <inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 4.1 Build 99
+[00:00:01.523,284] <inf> bt_hci_core: HCI transport: IPC
+[00:00:01.523,376] <inf> bt_hci_core: Identity: F2:08:1F:05:2D:4F (random)
+[00:00:01.523,406] <inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x0059
+[00:00:01.523,437] <inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff
+Bluetooth initialized
+Creating broadcast source
+Creating broadcast source with 1 subgroups with 2 streams
+Initializing lc3 encoder for stream 0
+Initializing lc3 encoder for stream 1
+Starting broadcast source
+Broadcast source 0x20003510 started
+Broadcast source started
+Waiting 120 seconds before stopped
+Stream 0x20000868: Sent 1000 total ISO packets
+Stream 0x200012c0: Sent 1000 total ISO packets
+Stream 0x20000868: Sent 2000 total ISO packets
+Stream 0x200012c0: Sent 2000 total ISO packets
+Stream 0x20000868: Sent 3000 total ISO packets
+Stream 0x200012c0: Sent 3000 total ISO packets
+Stream 0x20000868: Sent 4000 total ISO packets
+Stream 0x200012c0: Sent 4000 total ISO packets
+Stream 0x20000868: Sent 5000 total ISO packets
+Stream 0x200012c0: Sent 5000 total ISO packets
+Stream 0x20000868: Sent 6000 total ISO packets
+Stream 0x200012c0: Sent 6000 total ISO packets
+Stream 0x20000868: Sent 7000 total ISO packets
+Stream 0x200012c0: Sent 7000 total ISO packets

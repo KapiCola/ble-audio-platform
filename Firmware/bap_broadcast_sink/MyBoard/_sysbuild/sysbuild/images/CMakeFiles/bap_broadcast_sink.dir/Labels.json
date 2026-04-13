@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink-complete.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-build.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-configure.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-download.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-install.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-mkdir.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-patch.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bap_broadcast_sink"
+		],
+		"name" : "bap_broadcast_sink"
+	}
+}

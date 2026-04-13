@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_source-complete.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-build.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-configure.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-download.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-install.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-mkdir.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-patch.rule"
+		},
+		{
+			"file" : "D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/sysbuild/images/bap_broadcast_source-prefix/src/bap_broadcast_source-stamp/bap_broadcast_source-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bap_broadcast_source"
+		],
+		"name" : "bap_broadcast_source"
+	}
+}

@@ -1,0 +1,385 @@
+*** Booting nRF Connect SDK v3.1.1-e2a97fe2578a ***
+*** Using Zephyr OS v4.1.99-ff8f0c579eeb ***
+[00:00:01.259,979] <wrn> bt_hci_core: Num of Controller's ACL packets != ACL bt_conn_tx contexts (7 != 3)
+[00:00:01.259,979] <wrn> bt_hci_core: Num of Controller's ISO packets != ISO bt_conn_tx contexts(8 != 1)
+[00:00:01.263,458] <inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)
+[00:00:01.263,488] <inf> bt_hci_core: HW Variant: nRF53x (0x0003)
+[00:00:01.263,519] <inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 4.1 Build 99
+[00:00:01.265,777] <inf> bt_hci_core: HCI transport: IPC
+[00:00:01.265,899] <inf> bt_hci_core: Identity: D1:C0:65:BB:0F:7D (random)
+[00:00:01.265,930] <inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x0059
+[00:00:01.265,930] <inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff
+Bluetooth initialized
+[00:00:01.266,082] <inf> lc3: LC3 initialized
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+sem_broadcaster_found timed out, resetting
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+Found broadcaster with ID 0x123456 and addr 11:68:59:C2:17:1A (random) and sid 0x00
+broadcaster_broadcast_id = 0x123456
+Attempting to PA sync to the broadcaster with id 0x123456
+Waiting for PA synced
+PA sync 0x20007604 synced for broadcast sink with broadcast ID 0x123456
+Broadcast source PA synced, creating Broadcast Sink
+Receive state updated, pa sync state: 2, encrypt_state 0
+Broadcast Sink created, waiting for BASE
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Received BASE with 1 subgroups from broadcast sink 0x20007bd4
+Channel allocation (subgroup level) 0x00000003
+BIS index 0x00000001 allocation = 0x00000001
+BIS index 0x00000002 allocation = 0x00000002
+Broadcast sink (0x20007bd4) is syncable, BIG not encrypted
+BASE received, waiting for syncable
+Waiting for broadcast code
+Waiting for BIS sync request
+Syncing to broadcast with bitfield: 0x00000003, stream_count = 2
+Waiting for stream(s) started
+Stream 0x200027ac connected
+Stream 0x200027ac started
+[00:01:45.822,814] <inf> lc3: Initializing the LC3 decoder with 10000 us duration and 16000 Hz frequency
+[00:01:45.823,120] <inf> lc3: Initialized LC3 decoder for 0x200027ac
+Stream 0x20004b6c connected
+Stream 0x20004b6c started
+[00:01:45.823,608] <inf> lc3: Initializing the LC3 decoder with 10000 us duration and 16000 Hz frequency
+[00:01:45.823,913] <inf> lc3: Initialized LC3 decoder for 0x20004b6c
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+Broadcast sink 0x20007bd4 started
+Waiting for PA disconnected
+[00:01:45.834,960] <inf> stream_rx: [0]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 0 and ts 104562456: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:45.835,113] <inf> stream_rx: [0]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 0 and ts 104562456: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:46.075,073] <inf> stream_rx: [24]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 24 and ts 104802455: Valid 24 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:46.964,965] <inf> stream_rx: [113]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 113 and ts 105692446: Valid 113 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.015,075] <inf> stream_rx: [118]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 118 and ts 105742445: Valid 117 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.054,962] <inf> stream_rx: [122]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 122 and ts 105782446: Valid 121 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.124,786] <inf> stream_rx: [129]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 129 and ts 105852444: Valid 127 | Error 2 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.164,794] <inf> stream_rx: [133]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 133 and ts 105892446: Valid 130 | Error 3 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.174,774] <inf> stream_rx: [134]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 134 and ts 105902447: Valid 130 | Error 4 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.184,936] <inf> stream_rx: [135]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 135 and ts 105912444: Valid 133 | Error 2 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.194,915] <inf> stream_rx: [136]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 136 and ts 105922335: Valid 133 | Error 3 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.204,925] <inf> stream_rx: [137]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 137 and ts 105932444: Valid 133 | Error 4 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.224,792] <inf> stream_rx: [139]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 139 and ts 105952446: Valid 134 | Error 5 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.224,945] <inf> stream_rx: [139]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 139 and ts 105952446: Valid 134 | Error 5 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.264,923] <inf> stream_rx: [143]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 143 and ts 105992444: Valid 137 | Error 6 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.314,910] <inf> stream_rx: [148]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 148 and ts 106042440: Valid 142 | Error 6 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.344,787] <inf> stream_rx: [151]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 151 and ts 106072441: Valid 144 | Error 7 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.384,887] <inf> stream_rx: [155]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 155 and ts 106112440: Valid 148 | Error 7 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.435,058] <inf> stream_rx: [160]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 160 and ts 106162439: Valid 152 | Error 8 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.464,935] <inf> stream_rx: [163]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 163 and ts 106192444: Valid 155 | Error 8 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.474,914] <inf> stream_rx: [164]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 164 and ts 106202440: Valid 155 | Error 9 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.574,951] <inf> stream_rx: [174]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 174 and ts 106302441: Valid 165 | Error 9 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.775,054] <inf> stream_rx: [194]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 194 and ts 106502437: Valid 184 | Error 10 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.784,942] <inf> stream_rx: [195]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 195 and ts 106512438: Valid 184 | Error 11 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.794,921] <inf> stream_rx: [196]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 196 and ts 106522441: Valid 186 | Error 10 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.815,032] <inf> stream_rx: [198]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 198 and ts 106542436: Valid 186 | Error 12 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.824,920] <inf> stream_rx: [199]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 199 and ts 106552439: Valid 186 | Error 13 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.864,898] <inf> stream_rx: [203]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 203 and ts 106592436: Valid 192 | Error 11 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.884,887] <inf> stream_rx: [205]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 205 and ts 106612443: Valid 193 | Error 12 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.885,070] <inf> stream_rx: [205]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 205 and ts 106612443: Valid 191 | Error 14 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:47.904,907] <inf> stream_rx: [207]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 207 and ts 106632436: Valid 194 | Error 13 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.195,068] <inf> stream_rx: [236]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 236 and ts 106922433: Valid 221 | Error 15 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.204,742] <inf> stream_rx: [237]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 237 and ts 106932432: Valid 223 | Error 14 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.405,059] <inf> stream_rx: [257]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 257 and ts 107132430: Valid 241 | Error 16 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.454,772] <inf> stream_rx: [262]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 262 and ts 107182431: Valid 247 | Error 15 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.485,107] <inf> stream_rx: [265]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 265 and ts 107212436: Valid 248 | Error 17 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 6 messages dropped ---
+[00:01:48.624,877] <inf> stream_rx: [279]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 279 and ts 107352429: Valid 257 | Error 22 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.644,897] <inf> stream_rx: [281]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 281 and ts 107372431: Valid 263 | Error 18 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.645,080] <inf> stream_rx: [281]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 281 and ts 107372431: Valid 258 | Error 23 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.654,876] <inf> stream_rx: [282]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 282 and ts 107382430: Valid 258 | Error 24 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.674,896] <inf> stream_rx: [284]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 284 and ts 107402429: Valid 259 | Error 25 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:48.684,722] <inf> stream_rx: [285]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 285 and ts 107412431: Valid 266 | Error 19 | Loss 0 | Dup TS 0 | Dup PSN 0
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+PA sync 0x20007604 lost with reason 0x1F
+Waiting for sink to stop
+Stream 0x200027ac disconnected with reason 0x16
+Stream 0x200027ac stopped with reason 0x16
+Stream 0x20004b6c disconnected with reason 0x16
+Stream 0x20004b6c stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Broadcast sink 0x20007bd4 stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+Found broadcaster with ID 0x123456 and addr 11:68:59:C2:17:1A (random) and sid 0x00
+broadcaster_broadcast_id = 0x123456
+Attempting to PA sync to the broadcaster with id 0x123456
+Waiting for PA synced
+PA sync 0x20007604 synced for broadcast sink with broadcast ID 0x123456
+Broadcast source PA synced, creating Broadcast Sink
+Receive state updated, pa sync state: 2, encrypt_state 0
+Broadcast Sink created, waiting for BASE
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Received BASE with 1 subgroups from broadcast sink 0x20007bd4
+Channel allocation (subgroup level) 0x00000003
+BIS index 0x00000001 allocation = 0x00000001
+BIS index 0x00000002 allocation = 0x00000002
+Broadcast sink (0x20007bd4) is syncable, BIG not encrypted
+BASE received, waiting for syncable
+Waiting for broadcast code
+Waiting for BIS sync request
+Syncing to broadcast with bitfield: 0x00000003, stream_count = 2
+Waiting for stream(s) started
+Stream 0x200027ac connected
+Stream 0x200027ac started
+Stream 0x20004b6c connected
+Stream 0x20004b6c started
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+Broadcast sink 0x20007bd4 started
+Waiting for PA disconnected
+[00:01:59.334,655] <inf> stream_rx: [0]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 0 and ts 118055359: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:59.334,808] <inf> stream_rx: [0]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 0 and ts 118055359: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+PA sync 0x20007604 lost with reason 0x1F
+Waiting for sink to stop
+Stream 0x200027ac disconnected with reason 0x16
+Stream 0x200027ac stopped with reason 0x16
+Stream 0x20004b6c disconnected with reason 0x16
+Stream 0x20004b6c stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Broadcast sink 0x20007bd4 stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+Found broadcaster with ID 0x123456 and addr 11:68:59:C2:17:1A (random) and sid 0x00
+broadcaster_broadcast_id = 0x123456
+Attempting to PA sync to the broadcaster with id 0x123456
+Waiting for PA synced
+PA sync 0x20007604 synced for broadcast sink with broadcast ID 0x123456
+Broadcast source PA synced, creating Broadcast Sink
+Receive state updated, pa sync state: 2, encrypt_state 0
+Broadcast Sink created, waiting for BASE
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Received BASE with 1 subgroups from broadcast sink 0x20007bd4
+Channel allocation (subgroup level) 0x00000003
+BIS index 0x00000001 allocation = 0x00000001
+BIS index 0x00000002 allocation = 0x00000002
+Broadcast sink (0x20007bd4) is syncable, BIG not encrypted
+BASE received, waiting for syncable
+Waiting for broadcast code
+Waiting for BIS sync request
+Syncing to broadcast with bitfield: 0x00000003, stream_count = 2
+Waiting for stream(s) started
+Stream 0x200027ac connected
+Stream 0x200027ac started
+Stream 0x20004b6c connected
+Stream 0x20004b6c started
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+Broadcast sink 0x20007bd4 started
+Waiting for PA disconnected
+[00:02:10.444,549] <inf> stream_rx: [0]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 0 and ts 129158287: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:10.444,702] <inf> stream_rx: [0]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 0 and ts 129158287: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+PA sync 0x20007604 lost with reason 0x1F
+Waiting for sink to stop
+Stream 0x200027ac disconnected with reason 0x16
+Stream 0x200027ac stopped with reason 0x16
+Stream 0x20004b6c disconnected with reason 0x16
+Stream 0x20004b6c stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Broadcast sink 0x20007bd4 stopped with reason 0x16
+Receive state updated, pa sync state: 0, encrypt_state 0
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+Found broadcaster with ID 0x123456 and addr 11:68:59:C2:17:1A (random) and sid 0x00
+broadcaster_broadcast_id = 0x123456
+Attempting to PA sync to the broadcaster with id 0x123456
+Waiting for PA synced
+PA sync 0x20007604 synced for broadcast sink with broadcast ID 0x123456
+Broadcast source PA synced, creating Broadcast Sink
+Receive state updated, pa sync state: 2, encrypt_state 0
+Broadcast Sink created, waiting for BASE
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Received BASE with 1 subgroups from broadcast sink 0x20007bd4
+Channel allocation (subgroup level) 0x00000003
+BIS index 0x00000001 allocation = 0x00000001
+BIS index 0x00000002 allocation = 0x00000002
+Broadcast sink (0x20007bd4) is syncable, BIG not encrypted
+BASE received, waiting for syncable
+Waiting for broadcast code
+Waiting for BIS sync request
+Syncing to broadcast with bitfield: 0x00000003, stream_count = 2
+Waiting for stream(s) started
+Stream 0x200027ac connected
+Stream 0x200027ac started
+Stream 0x20004b6c connected
+Stream 0x20004b6c started
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+Broadcast sink 0x20007bd4 started
+Waiting for PA disconnected
+[00:02:22.394,439] <inf> stream_rx: [0]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 0 and ts 141101175: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:22.394,592] <inf> stream_rx: [0]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 0 and ts 141101175: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:22.714,416] <inf> stream_rx: [32]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 32 and ts 141421174: Valid 32 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:23.224,731] <inf> stream_rx: [83]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 83 and ts 141931166: Valid 83 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:23.514,587] <inf> stream_rx: [112]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 112 and ts 142221170: Valid 111 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:24.104,400] <inf> stream_rx: [171]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 171 and ts 142811038: Valid 169 | Error 2 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:24.194,396] <inf> stream_rx: [180]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 180 and ts 142901159: Valid 177 | Error 3 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:25.694,549] <inf> stream_rx: [330]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 330 and ts 144401142: Valid 326 | Error 4 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:25.784,545] <inf> stream_rx: [339]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 339 and ts 144491142: Valid 334 | Error 5 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:26.154,510] <inf> stream_rx: [376]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 376 and ts 144861141: Valid 375 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:26.594,665] <inf> stream_rx: [420]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 420 and ts 145301132: Valid 418 | Error 2 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:27.794,525] <inf> stream_rx: [540]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 540 and ts 146501124: Valid 534 | Error 6 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:28.324,523] <inf> stream_rx: [593]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 593 and ts 147031115: Valid 590 | Error 3 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:29.034,454] <inf> stream_rx: [664]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 664 and ts 147741106: Valid 660 | Error 4 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:29.494,476] <inf> stream_rx: [710]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 710 and ts 148201105: Valid 703 | Error 7 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:29.544,464] <inf> stream_rx: [715]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 715 and ts 148251101: Valid 710 | Error 5 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:29.884,674] <inf> stream_rx: [749]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 749 and ts 148591097: Valid 743 | Error 6 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:30.094,482] <inf> stream_rx: [770]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 770 and ts 148801103: Valid 762 | Error 8 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:30.284,454] <inf> stream_rx: [789]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 789 and ts 148991094: Valid 782 | Error 7 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:30.364,440] <inf> stream_rx: [797]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 797 and ts 149071093: Valid 789 | Error 8 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:30.644,470] <inf> stream_rx: [825]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 825 and ts 149351091: Valid 816 | Error 9 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:31.274,475] <inf> stream_rx: [888]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 888 and ts 149981088: Valid 878 | Error 10 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:31.784,332] <inf> stream_rx: [939]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 939 and ts 150491083: Valid 928 | Error 11 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:31.844,482] <inf> stream_rx: [945]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 945 and ts 150551085: Valid 933 | Error 12 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:32.094,635] <inf> stream_rx: [970]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 970 and ts 150801079: Valid 961 | Error 9 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:32.394,470] <inf> stream_rx: [1000]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 1000 and ts 151101073: Valid 987 | Error 13 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:32.394,653] <inf> stream_rx: [1000]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 1000 and ts 151101073: Valid 990 | Error 10 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:33.374,481] <inf> stream_rx: [1098]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1098 and ts 152081065: Valid 1085 | Error 13 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:33.914,306] <inf> stream_rx: [1152]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1152 and ts 152621061: Valid 1138 | Error 14 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:33.964,599] <inf> stream_rx: [1157]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1157 and ts 152671061: Valid 1147 | Error 10 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:35.144,561] <inf> stream_rx: [1275]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1275 and ts 153851045: Valid 1264 | Error 11 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:35.244,598] <inf> stream_rx: [1285]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1285 and ts 153951044: Valid 1273 | Error 12 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:35.904,418] <inf> stream_rx: [1351]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1351 and ts 154611039: Valid 1336 | Error 15 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:36.904,449] <inf> stream_rx: [1451]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1451 and ts 155611029: Valid 1435 | Error 16 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.444,427] <inf> stream_rx: [1505]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1505 and ts 156151022: Valid 1488 | Error 17 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.734,252] <inf> stream_rx: [1534]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1534 and ts 156441019: Valid 1516 | Error 18 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.744,567] <inf> stream_rx: [1535]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1535 and ts 156451019: Valid 1522 | Error 13 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.764,251] <inf> stream_rx: [1537]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1537 and ts 156471020: Valid 1518 | Error 19 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.824,218] <inf> stream_rx: [1543]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1543 and ts 156531018: Valid 1523 | Error 20 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.824,371] <inf> stream_rx: [1543]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1543 and ts 156531018: Valid 1529 | Error 14 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.894,256] <inf> stream_rx: [1550]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1550 and ts 156601020: Valid 1529 | Error 21 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.924,407] <inf> stream_rx: [1553]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1553 and ts 156631018: Valid 1538 | Error 15 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.954,284] <inf> stream_rx: [1556]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1556 and ts 156660952: Valid 1534 | Error 22 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:37.954,437] <inf> stream_rx: [1556]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1556 and ts 156660952: Valid 1540 | Error 16 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.064,392] <inf> stream_rx: [1567]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1567 and ts 156771014: Valid 1544 | Error 23 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.094,390] <inf> stream_rx: [1570]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1570 and ts 156801016: Valid 1553 | Error 17 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.134,246] <inf> stream_rx: [1574]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1574 and ts 156840914: Valid 1550 | Error 24 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.134,429] <inf> stream_rx: [1574]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1574 and ts 156840914: Valid 1556 | Error 18 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.234,252] <inf> stream_rx: [1584]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1584 and ts 156940920: Valid 1559 | Error 25 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.264,373] <inf> stream_rx: [1587]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1587 and ts 156971013: Valid 1568 | Error 19 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.284,362] <inf> stream_rx: [1589]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1589 and ts 156991015: Valid 1563 | Error 26 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.324,432] <inf> stream_rx: [1593]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1593 and ts 157031016: Valid 1566 | Error 27 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.344,512] <inf> stream_rx: [1595]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1595 and ts 157051014: Valid 1575 | Error 20 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.444,274] <inf> stream_rx: [1605]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1605 and ts 157150912: Valid 1577 | Error 28 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.524,230] <inf> stream_rx: [1613]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1613 and ts 157231010: Valid 1584 | Error 29 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.554,534] <inf> stream_rx: [1616]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1616 and ts 157261011: Valid 1595 | Error 21 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.564,361] <inf> stream_rx: [1617]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1617 and ts 157271009: Valid 1595 | Error 22 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.574,523] <inf> stream_rx: [1618]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1618 and ts 157281010: Valid 1595 | Error 23 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.614,532] <inf> stream_rx: [1622]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1622 and ts 157321010: Valid 1598 | Error 24 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.644,226] <inf> stream_rx: [1625]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1625 and ts 157351013: Valid 1595 | Error 30 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.644,378] <inf> stream_rx: [1625]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1625 and ts 157351013: Valid 1600 | Error 25 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.654,357] <inf> stream_rx: [1626]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1626 and ts 157361010: Valid 1600 | Error 26 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.664,215] <inf> stream_rx: [1627]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1627 and ts 157371009: Valid 1596 | Error 31 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.684,265] <inf> stream_rx: [1629]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1629 and ts 157390933: Valid 1597 | Error 32 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.704,254] <inf> stream_rx: [1631]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1631 and ts 157411011: Valid 1598 | Error 33 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.744,232] <inf> stream_rx: [1635]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1635 and ts 157451009: Valid 1601 | Error 34 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.744,415] <inf> stream_rx: [1635]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1635 and ts 157451009: Valid 1608 | Error 27 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.764,251] <inf> stream_rx: [1637]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1637 and ts 157471010: Valid 1602 | Error 35 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.784,393] <inf> stream_rx: [1639]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1639 and ts 157491007: Valid 1611 | Error 28 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.894,378] <inf> stream_rx: [1650]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1650 and ts 157601007: Valid 1614 | Error 36 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.914,337] <inf> stream_rx: [1652]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1652 and ts 157621006: Valid 1623 | Error 29 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.934,234] <inf> stream_rx: [1654]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1654 and ts 157641008: Valid 1617 | Error 37 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:38.994,201] <inf> stream_rx: [1660]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1660 and ts 157701008: Valid 1622 | Error 38 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.034,393] <inf> stream_rx: [1664]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1664 and ts 157741010: Valid 1625 | Error 39 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.274,536] <inf> stream_rx: [1688]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1688 and ts 157981002: Valid 1658 | Error 30 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.324,493] <inf> stream_rx: [1693]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1693 and ts 158031003: Valid 1662 | Error 31 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.434,234] <inf> stream_rx: [1704]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1704 and ts 158141003: Valid 1664 | Error 40 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.464,355] <inf> stream_rx: [1707]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1707 and ts 158171001: Valid 1675 | Error 32 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.544,403] <inf> stream_rx: [1715]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 1715 and ts 158251006: Valid 1674 | Error 41 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:39.544,555] <inf> stream_rx: [1715]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 1715 and ts 158251006: Valid 1682 | Error 33 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:42.394,348] <inf> stream_rx: [2000]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 2000 and ts 161100971: Valid 1958 | Error 42 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:42.394,500] <inf> stream_rx: [2000]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 2000 and ts 161100971: Valid 1966 | Error 34 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:42.714,385] <inf> stream_rx: [2032]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 2032 and ts 161420968: Valid 1990 | Error 42 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:43.374,328] <inf> stream_rx: [2098]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 2098 and ts 162080961: Valid 2064 | Error 34 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:43.384,277] <inf> stream_rx: [2099]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 2099 and ts 162090961: Valid 2064 | Error 35 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:43.414,306] <inf> stream_rx: [2102]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 2102 and ts 162120960: Valid 2066 | Error 36 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:43.424,346] <inf> stream_rx: [2103]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 2103 and ts 162130961: Valid 2066 | Error 37 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:43.454,345] <inf> stream_rx: [2106]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 2106 and ts 162160959: Valid 2063 | Error 43 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:44.214,324] <inf> stream_rx: [2182]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 2182 and ts 162920840: Valid 2144 | Error 38 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:44.584,320] <inf> stream_rx: [2219]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 2219 and ts 163290948: Valid 2175 | Error 44 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:52.394,256] <inf> stream_rx: [3000]: Incoming audio on stream 0x200027ac len 40, flags 0x09, seq_num 3000 and ts 171100869: Valid 2955 | Error 45 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:52.394,409] <inf> stream_rx: [3000]: Incoming audio on stream 0x20004b6c len 40, flags 0x09, seq_num 3000 and ts 171100869: Valid 2961 | Error 39 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.664,001] <inf> stream_rx: [3627]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3627 and ts 177370669: Valid 3582 | Error 45 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.664,184] <inf> stream_rx: [3627]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3627 and ts 177370669: Valid 3588 | Error 39 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 1 messages dropped ---
+[00:02:58.684,173] <inf> stream_rx: [3629]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3629 and ts 177390658: Valid 3588 | Error 41 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 6 messages dropped ---
+[00:02:58.714,019] <inf> stream_rx: [3632]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3632 and ts 177420657: Valid 3582 | Error 50 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 4 messages dropped ---
+[00:02:58.734,191] <inf> stream_rx: [3634]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3634 and ts 177440646: Valid 3588 | Error 46 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 2 messages dropped ---
+[00:02:58.764,038] <inf> stream_rx: [3637]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3637 and ts 177470645: Valid 3582 | Error 55 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 5 messages dropped ---
+[00:02:58.784,027] <inf> stream_rx: [3639]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3639 and ts 177490664: Valid 3582 | Error 57 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 4 messages dropped ---
+[00:02:58.804,199] <inf> stream_rx: [3641]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3641 and ts 177510653: Valid 3588 | Error 53 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.814,025] <inf> stream_rx: [3642]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3642 and ts 177520663: Valid 3582 | Error 60 | Loss 0 | Dup TS 0 | Dup PSN 0
+--- 1 messages dropped ---
+[00:02:58.824,035] <inf> stream_rx: [3643]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3643 and ts 177530642: Valid 3582 | Error 61 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.824,188] <inf> stream_rx: [3643]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3643 and ts 177530642: Valid 3588 | Error 55 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.834,045] <inf> stream_rx: [3644]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3644 and ts 177540652: Valid 3582 | Error 62 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.834,197] <inf> stream_rx: [3644]: Incoming audio on stream 0x20004b6c len 0, flags 0x0A, seq_num 3644 and ts 177540652: Valid 3588 | Error 56 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:58.844,146] <inf> stream_rx: [3645]: Incoming audio on stream 0x200027ac len 0, flags 0x0A, seq_num 3645 and ts 177550662: Valid 3582 | Error 63 | Loss 0 | Dup TS 0 | Dup PSN 0
+Stream 0x200027ac disconnected with reason 0x08
+Stream 0x200027ac stopped with reason 0x08
+Stream 0x20004b6c disconnected with reason 0x08
+Stream 0x20004b6c stopped with reason 0x08
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Broadcast sink 0x20007bd4 stopped with reason 0x08
+Receive state updated, pa sync state: 0, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+PA sync 0x20007604 lost with reason 0x1F
+Receive state updated, pa sync state: 0, encrypt_state 0
+Waiting for sink to stop
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+sem_broadcaster_found timed out, resetting
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+sem_broadcaster_found timed out, resetting
+Reset
+Starting advertising
+Waiting for Broadcast Assistant

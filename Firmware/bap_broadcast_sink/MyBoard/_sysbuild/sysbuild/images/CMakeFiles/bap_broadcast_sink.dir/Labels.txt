@@ -1,0 +1,13 @@
+# Target labels
+ bap_broadcast_sink
+# Source files and their labels
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/CMakeFiles/bap_broadcast_sink-complete.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-build.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-configure.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-download.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-install.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-mkdir.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-patch.rule
+D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild/sysbuild/images/bap_broadcast_sink-prefix/src/bap_broadcast_sink-stamp/bap_broadcast_sink-update.rule

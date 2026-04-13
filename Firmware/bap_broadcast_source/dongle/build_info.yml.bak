@@ -1,0 +1,22 @@
+cmake:
+  board:
+    name: 'nrf52820dongle'
+    path:
+     - 'C:/ncs/v3.1.1/nrf/boards/nordic/nrf52820dongle'
+    qualifiers: 'nrf52820'
+    revision: ''
+  images:
+   - name: 'bap_broadcast_source'
+     source-dir: 'D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source'
+     type: 'MAIN'
+  kconfig:
+    files:
+     - 'D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/empty.conf'
+     - 'D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/empty.conf'
+    user-files:
+     - 'D:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle/_sysbuild/empty.conf'
+version: '0.1.0'
+west:
+  command: 'C:\ncs\toolchains\c1a76fddb2\opt\bin\Scripts\west build --build-dir d:/Inzynierka_V2/Kody_testowe/bap_broadcast_source/dongle d:/Inzynierka_V2/Kody_testowe/bap_broadcast_source --pristine --board nrf52820dongle/nrf52820 -- -DCONFIG_DEBUG_THREAD_INFO=y'
+  topdir: 'c:\ncs\v3.1.1'
+  version: '1.4.0'

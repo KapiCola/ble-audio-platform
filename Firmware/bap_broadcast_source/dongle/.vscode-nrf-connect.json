@@ -1,0 +1,17 @@
+{
+  "toolchainPath": "c:\\ncs\\toolchains\\c1a76fddb2",
+  "sdkPath": "c:\\ncs\\v3.1.1",
+  "board": "nrf52820dongle/nrf52820",
+  "boardDir": "c:\\ncs\\v3.1.1\\nrf\\boards\\nordic\\nrf52820dongle",
+  "boardDirs": [
+    "c:\\ncs\\v3.1.1\\nrf\\boards\\nordic\\nrf52820dongle"
+  ],
+  "optimizations": "none",
+  "cmakeArgs": [],
+  "confFiles": [],
+  "buildDirectory": "dongle",
+  "kconfigFragments": [],
+  "snippets": [],
+  "dtcOverlays": [],
+  "extraDtcOverlays": []
+}
