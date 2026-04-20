@@ -21,18 +21,25 @@
 #include <zephyr/bluetooth/uuid.h>
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
-#include <zephyr/drivers/usb/udc_buf.h>
 #include <zephyr/kernel.h>
 #include <zephyr/net_buf.h>
 #include <zephyr/sys/__assert.h>
 #include <zephyr/sys/printk.h>
+#include <zephyr/sys/ring_buffer.h>
 #include <zephyr/sys/util.h>
 #include <zephyr/sys_clock.h>
 #include <zephyr/toolchain.h>
+#if defined(CONFIG_USE_USB_AUDIO_INPUT)
+#include <zephyr/drivers/usb/udc_buf.h>
 #include <zephyr/usb/class/usbd_uac2.h>
 #include <zephyr/usb/usbd.h>
+#endif
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+#include <zephyr/drivers/i2s.h>
 
-#undef CONFIG_USE_USB_AUDIO_INPUT
+#include "codec_sgtl5000.h"
+#include "pmic.h"
+#endif
 
 BUILD_ASSERT(strlen(CONFIG_BROADCAST_CODE) <= BT_ISO_BROADCAST_CODE_SIZE, "Invalid broadcast code");
 
@@ -53,6 +60,7 @@ static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_16_2
 	BT_AUDIO_CONTEXT_TYPE_UNSPECIFIED);
 
 #define BROADCAST_SAMPLE_RATE 16000
+#define BROADCAST_OCTETS_PER_FRAME 40U
 
 #elif defined(CONFIG_BAP_BROADCAST_24_2_1)
 
@@ -61,6 +69,25 @@ static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_24_2
 	BT_AUDIO_CONTEXT_TYPE_UNSPECIFIED);
 
 #define BROADCAST_SAMPLE_RATE 24000
+#define BROADCAST_OCTETS_PER_FRAME 60U
+
+#elif defined(CONFIG_BAP_BROADCAST_32_2_1)
+
+static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_32_2_1(
+	BT_AUDIO_LOCATION_FRONT_LEFT | BT_AUDIO_LOCATION_FRONT_RIGHT,
+	BT_AUDIO_CONTEXT_TYPE_UNSPECIFIED);
+
+#define BROADCAST_SAMPLE_RATE 32000
+#define BROADCAST_OCTETS_PER_FRAME 80U
+
+#elif defined(CONFIG_BAP_BROADCAST_48_2_1)
+
+static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_48_2_1(
+	BT_AUDIO_LOCATION_FRONT_LEFT | BT_AUDIO_LOCATION_FRONT_RIGHT,
+	BT_AUDIO_CONTEXT_TYPE_UNSPECIFIED);
+
+#define BROADCAST_SAMPLE_RATE 48000
+#define BROADCAST_OCTETS_PER_FRAME 100U
 
 #endif
 
@@ -68,9 +95,16 @@ static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_24_2
 #define MAX_SAMPLE_RATE 16000
 #elif defined(CONFIG_BAP_BROADCAST_24_2_1)
 #define MAX_SAMPLE_RATE 24000
+#elif defined(CONFIG_BAP_BROADCAST_32_2_1)
+#define MAX_SAMPLE_RATE 32000
+#elif defined(CONFIG_BAP_BROADCAST_48_2_1)
+#define MAX_SAMPLE_RATE 48000
 #endif
 #define MAX_FRAME_DURATION_US 10000
 #define MAX_NUM_SAMPLES       ((MAX_FRAME_DURATION_US * MAX_SAMPLE_RATE) / USEC_PER_SEC)
+
+BUILD_ASSERT(CONFIG_BT_ISO_TX_MTU >= BROADCAST_OCTETS_PER_FRAME,
+	     "CONFIG_BT_ISO_TX_MTU is too small for the selected broadcast preset");
 
 #if defined(CONFIG_LIBLC3)
 #include "lc3.h"
@@ -78,7 +112,6 @@ static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_24_2
 #if defined(CONFIG_USE_USB_AUDIO_INPUT)
 #include <zephyr/usb/usb_device.h>
 #include <zephyr/usb/class/usb_audio.h>
-#include <zephyr/sys/ring_buffer.h>
 
 #include <sample_usbd.h>
 
@@ -99,6 +132,22 @@ static struct bt_bap_lc3_preset preset_active = BT_BAP_LC3_BROADCAST_PRESET_24_2
 
 #define RING_BUF_USB_FRAMES  20
 #define AUDIO_RING_BUF_BYTES (USB_DOWNSSAMPLE_CNT * USB_BYTES_PER_SAMPLE * RING_BUF_USB_FRAMES)
+#elif defined(CONFIG_USE_I2S_CODEC_INPUT)
+
+#define I2S_BYTES_PER_SAMPLE     2U
+#define I2S_CHANNEL_COUNT        2U
+#define I2S_MONO_BLOCK_SAMPLES   ((BROADCAST_SAMPLE_RATE * MAX_FRAME_DURATION_US) / USEC_PER_SEC)
+#define I2S_STEREO_BLOCK_SAMPLES (I2S_MONO_BLOCK_SAMPLES * I2S_CHANNEL_COUNT)
+#define I2S_BLOCK_BYTES          (I2S_STEREO_BLOCK_SAMPLES * I2S_BYTES_PER_SAMPLE)
+#define I2S_BLOCK_COUNT          32U
+#define I2S_RING_BUF_BLOCKS      12U
+#define I2S_MONO_BLOCK_BYTES     (I2S_MONO_BLOCK_SAMPLES * I2S_BYTES_PER_SAMPLE)
+#define AUDIO_RING_BUF_BYTES     (I2S_MONO_BLOCK_BYTES * I2S_RING_BUF_BLOCKS)
+#define I2S_RING_TARGET_BLOCKS   4U
+#define I2S_RING_HIGH_BLOCKS     6U
+#define I2S_RING_TARGET_BYTES    (I2S_MONO_BLOCK_BYTES * I2S_RING_TARGET_BLOCKS)
+#define I2S_RING_HIGH_BYTES      (I2S_MONO_BLOCK_BYTES * I2S_RING_HIGH_BLOCKS)
+#define I2S_STARTUP_DELAY_MS     40U
 #else /* !defined(CONFIG_USE_USB_AUDIO_INPUT) */
 
 #include <math.h>
@@ -137,13 +186,17 @@ static struct broadcast_source_stream {
 	lc3_encoder_t lc3_encoder;
 #if defined(CONFIG_BAP_BROADCAST_16_2_1)
 	lc3_encoder_mem_16k_t lc3_encoder_mem;
-#elif defined(CONFIG_BAP_BROADCAST_24_2_1)
+#elif defined(CONFIG_BAP_BROADCAST_24_2_1) || defined(CONFIG_BAP_BROADCAST_32_2_1) || \
+	defined(CONFIG_BAP_BROADCAST_48_2_1)
 	lc3_encoder_mem_48k_t lc3_encoder_mem;
 #endif
-#if defined(CONFIG_USE_USB_AUDIO_INPUT)
+#if defined(CONFIG_USE_USB_AUDIO_INPUT) || defined(CONFIG_USE_I2S_CODEC_INPUT)
 	struct ring_buf audio_ring_buf;
 	uint8_t _ring_buffer_memory[AUDIO_RING_BUF_BYTES];
 #endif /* defined(CONFIG_USE_USB_AUDIO_INPUT) */
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+	uint32_t drift_trim_cnt;
+#endif
 #endif /* defined(CONFIG_LIBLC3) */
 } streams[CONFIG_BT_BAP_BROADCAST_SRC_STREAM_COUNT];
 static struct bt_bap_broadcast_source *broadcast_source;
@@ -158,7 +211,10 @@ static bool stopping;
 static K_SEM_DEFINE(sem_started, 0U, 1U);
 static K_SEM_DEFINE(sem_stopped, 0U, 1U);
 
-#define BROADCAST_SOURCE_LIFETIME 120U /* seconds */
+#define PMIC_EARLY_STARTUP_DELAY_MS 20U
+
+/* Run the broadcaster continuously. */
+#define BROADCAST_SOURCE_LIFETIME 0U /* seconds; 0 means run forever */
 
 #if defined(CONFIG_LIBLC3)
 static int freq_hz;
@@ -167,6 +223,18 @@ static int frames_per_sdu;
 static int octets_per_frame;
 
 static K_SEM_DEFINE(lc3_encoder_sem, 0U, TOTAL_BUF_NEEDED);
+#endif
+
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+K_MEM_SLAB_DEFINE_STATIC(i2s_slab, I2S_BLOCK_BYTES, I2S_BLOCK_COUNT, 4);
+
+static const struct device *const codec_i2s = DEVICE_DT_GET(DT_NODELABEL(i2s0));
+static int16_t i2s_pcm_channels[2][I2S_MONO_BLOCK_SAMPLES];
+static uint32_t i2s_put_short_cnt[2];
+static bool i2s_codec_input_started;
+static uint8_t i2s_drop_buffer[I2S_MONO_BLOCK_BYTES];
+
+static void drop_oldest_audio_samples(struct ring_buf *ring_buf, size_t bytes_to_drop);
 #endif
 
 static void send_data(struct broadcast_source_stream *source_stream)
@@ -195,7 +263,22 @@ static void send_data(struct broadcast_source_stream *source_stream)
 		return;
 	}
 
-#if defined(CONFIG_USE_USB_AUDIO_INPUT)
+#if defined(CONFIG_USE_USB_AUDIO_INPUT) || defined(CONFIG_USE_I2S_CODEC_INPUT)
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+	uint32_t queued = ring_buf_size_get(&source_stream->audio_ring_buf);
+
+	if (queued > I2S_RING_HIGH_BYTES) {
+		const uint32_t bytes_to_drop = queued - I2S_RING_TARGET_BYTES;
+
+		drop_oldest_audio_samples(&source_stream->audio_ring_buf, bytes_to_drop);
+		source_stream->drift_trim_cnt++;
+		if ((source_stream->drift_trim_cnt % 100U) == 1U) {
+			printk("I2S drift trim on %p (%u), dropped %u bytes\n", stream,
+			       (unsigned int)source_stream->drift_trim_cnt,
+			       (unsigned int)bytes_to_drop);
+		}
+	}
+#endif
 	uint32_t size = ring_buf_get(&source_stream->audio_ring_buf, (uint8_t *)send_pcm_data,
 				     sizeof(send_pcm_data));
 
@@ -233,6 +316,148 @@ static void send_data(struct broadcast_source_stream *source_stream)
 		printk("Stream %p: Sent %u total ISO packets\n", stream, source_stream->sent_cnt);
 	}
 }
+
+#if defined(CONFIG_USE_USB_AUDIO_INPUT) || defined(CONFIG_USE_I2S_CODEC_INPUT)
+static void init_audio_ring_buffers(void)
+{
+	for (size_t i = 0U; i < ARRAY_SIZE(streams); i++) {
+		ring_buf_init(&streams[i].audio_ring_buf, sizeof(streams[i]._ring_buffer_memory),
+			      streams[i]._ring_buffer_memory);
+	}
+}
+#endif
+
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+static void drop_oldest_audio_samples(struct ring_buf *ring_buf, size_t bytes_to_drop)
+{
+	while (bytes_to_drop > 0U) {
+		const uint32_t dropped = ring_buf_get(ring_buf, i2s_drop_buffer,
+						      MIN(sizeof(i2s_drop_buffer), bytes_to_drop));
+
+		if (dropped == 0U) {
+			break;
+		}
+
+		bytes_to_drop -= dropped;
+	}
+}
+
+static void queue_i2s_audio_block(const int16_t *pcm, size_t size)
+{
+	const size_t samples_per_channel = size / (sizeof(int16_t) * I2S_CHANNEL_COUNT);
+	const size_t mono_bytes = samples_per_channel * sizeof(int16_t);
+
+	if ((size % (sizeof(int16_t) * I2S_CHANNEL_COUNT)) != 0U ||
+	    samples_per_channel > ARRAY_SIZE(i2s_pcm_channels[0])) {
+		printk("Unexpected I2S block size: %u\n", (unsigned int)size);
+		return;
+	}
+
+	for (size_t i = 0U, j = 0U; i < samples_per_channel; i++, j += I2S_CHANNEL_COUNT) {
+		i2s_pcm_channels[0][i] = pcm[j];
+		i2s_pcm_channels[1][i] = pcm[j + 1U];
+	}
+
+	for (size_t i = 0U; i < MIN(ARRAY_SIZE(streams), 2U); i++) {
+		const uint32_t size_put = ring_buf_put(&streams[i].audio_ring_buf,
+						      (uint8_t *)i2s_pcm_channels[i], mono_bytes);
+
+		if (size_put < mono_bytes) {
+			i2s_put_short_cnt[i]++;
+			if ((i2s_put_short_cnt[i] % 100U) == 1U) {
+				printk("I2S ring buffer put short on channel %u (%u): %u < %u\n",
+				       (unsigned int)i, (unsigned int)i2s_put_short_cnt[i], size_put,
+				       (unsigned int)mono_bytes);
+			}
+		}
+	}
+}
+
+static void i2s_codec_input_thread(void *arg1, void *arg2, void *arg3)
+{
+	while (true) {
+		void *blk;
+		size_t size;
+		int ret;
+
+		ret = i2s_read(codec_i2s, &blk, &size);
+		if (ret < 0) {
+			printk("I2S RX err %d\n", ret);
+			return;
+		}
+
+		queue_i2s_audio_block((const int16_t *)blk, size);
+
+		/* In RX-only mode the application owns the block returned by i2s_read(),
+		 * so it has to give it back to the slab after copying the samples out.
+		 */
+		k_mem_slab_free(&i2s_slab, blk);
+	}
+}
+
+#define I2S_CODEC_INPUT_STACK_SIZE 4096
+#define I2S_CODEC_INPUT_PRIORITY   4
+
+K_THREAD_DEFINE(i2s_codec_input, I2S_CODEC_INPUT_STACK_SIZE, i2s_codec_input_thread, NULL, NULL,
+		NULL, I2S_CODEC_INPUT_PRIORITY, 0, -1);
+
+static int i2s_codec_input_init(void)
+{
+	struct i2s_config cfg = {
+		.word_size = 16,
+		.channels = 2,
+		.format = I2S_FMT_DATA_FORMAT_I2S,
+		.options = I2S_OPT_BIT_CLK_MASTER | I2S_OPT_FRAME_CLK_MASTER,
+		.frame_clk_freq = BROADCAST_SAMPLE_RATE,
+		.mem_slab = &i2s_slab,
+		.block_size = I2S_BLOCK_BYTES,
+		.timeout = 1000,
+	};
+	int ret;
+
+	if (!device_is_ready(codec_i2s)) {
+		printk("I2S device not ready\n");
+		return -ENODEV;
+	}
+
+	ret = codec_init();
+	if (ret != 0) {
+		printk("Codec init failed: %d\n", ret);
+		return ret;
+	}
+
+	ret = i2s_configure(codec_i2s, I2S_DIR_RX, &cfg);
+	if (ret < 0) {
+		printk("Unable to configure I2S RX: %d\n", ret);
+		return ret;
+	}
+
+	printk("I2S codec input initialized\n");
+
+	return 0;
+}
+
+static int i2s_codec_input_start(void)
+{
+	int ret;
+
+	if (i2s_codec_input_started) {
+		return 0;
+	}
+
+	ret = i2s_trigger(codec_i2s, I2S_DIR_RX, I2S_TRIGGER_START);
+	if (ret < 0) {
+		printk("Unable to start I2S: %d\n", ret);
+		return ret;
+	}
+
+	k_thread_start(i2s_codec_input);
+	i2s_codec_input_started = true;
+	k_msleep(I2S_STARTUP_DELAY_MS);
+
+	return 0;
+}
+#endif
 
 #if defined(CONFIG_LIBLC3)
 static void init_lc3_thread(void *arg1, void *arg2, void *arg3)
@@ -273,7 +498,7 @@ static void init_lc3_thread(void *arg1, void *arg2, void *arg3)
 		return;
 	}
 
-#if !defined(CONFIG_USE_USB_AUDIO_INPUT)
+#if !defined(CONFIG_USE_USB_AUDIO_INPUT) && !defined(CONFIG_USE_I2S_CODEC_INPUT)
 	/* If USB is not used as a sound source, generate a sine wave */
 	fill_audio_buf_sin(send_pcm_data, frame_duration_us, AUDIO_TONE_FREQUENCY_HZ, freq_hz);
 #endif
@@ -360,7 +585,7 @@ static void data_recv_cb(const struct device *dev, uint8_t terminal, void *buf, 
 	pcm = (int16_t *)buf;
 
 	/* 'size' is in bytes, containing 1ms, 48kHz, stereo, 2 bytes per sample.
-	 * Do a simple downsample to 16kHz/24Khz matching the broadcast preset.
+	 * Do a simple decimation to match the selected broadcast preset.
 	 */
 
 	ratio = USB_SAMPLE_RATE / USB_DOWNSAMPLE_RATE;
@@ -399,6 +624,9 @@ static void stream_started_cb(struct bt_bap_stream *stream)
 
 	source_stream->seq_num = 0U;
 	source_stream->sent_cnt = 0U;
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+	source_stream->drift_trim_cnt = 0U;
+#endif
 }
 
 static void stream_sent_cb(struct bt_bap_stream *stream)
@@ -492,6 +720,17 @@ int main(void)
 	struct bt_le_ext_adv *adv;
 	int err;
 
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+	err = pmic_init();
+	if (err != 0) {
+		printk("Early PMIC init failed (err %d)\n", err);
+		return 0;
+	}
+
+	k_msleep(PMIC_EARLY_STARTUP_DELAY_MS);
+	pmic_debug_dump();
+#endif
+
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
@@ -511,6 +750,9 @@ int main(void)
 	}
 
 #if defined(CONFIG_LIBLC3)
+#if defined(CONFIG_USE_USB_AUDIO_INPUT) || defined(CONFIG_USE_I2S_CODEC_INPUT)
+	init_audio_ring_buffers();
+#endif
 #if defined(CONFIG_USE_USB_AUDIO_INPUT)
 	const struct device *broadcaster_dev = DEVICE_DT_GET(DT_NODELABEL(uac2_broadcaster));
 	static struct uac2_ops usb_audio_ops = {
@@ -528,15 +770,6 @@ int main(void)
 
 	printk("Found USB Headset Device\n");
 
-	(void)memset(streams, 0, sizeof(streams));
-
-	for (size_t i = 0U; i < ARRAY_SIZE(streams); i++) {
-		ring_buf_init(&(streams[i].audio_ring_buf), sizeof(streams[i]._ring_buffer_memory),
-			      streams[i]._ring_buffer_memory);
-		printk("Initialized ring buf %zu: capacity: %u\n", i,
-		       ring_buf_capacity_get(&(streams[i].audio_ring_buf)));
-	}
-
 	usbd_uac2_set_ops(broadcaster_dev, &usb_audio_ops, NULL);
 
 	sample_usbd = sample_usbd_init_device(NULL);
@@ -552,8 +785,13 @@ int main(void)
 	}
 
 	printk("USB initialized\n");
-
 #endif /* defined(CONFIG_USE_USB_AUDIO_INPUT) */
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+	err = i2s_codec_input_init();
+	if (err != 0) {
+		return err;
+	}
+#endif
 	k_thread_start(encoder);
 #endif /* defined(CONFIG_LIBLC3) */
 
@@ -652,6 +890,13 @@ int main(void)
 		k_sem_take(&sem_started, K_FOREVER);
 		printk("Broadcast source started\n");
 
+#if defined(CONFIG_USE_I2S_CODEC_INPUT)
+		err = i2s_codec_input_start();
+		if (err != 0) {
+			return 0;
+		}
+#endif
+
 		/* Initialize sending */
 		for (size_t i = 0U; i < ARRAY_SIZE(streams); i++) {
 			for (unsigned int j = 0U; j < BROADCAST_ENQUEUE_COUNT; j++) {
@@ -663,6 +908,10 @@ int main(void)
 		/* Never stop streaming when using USB Audio as input */
 		k_sleep(K_FOREVER);
 #endif /* defined(CONFIG_LIBLC3) && defined(CONFIG_USE_USB_AUDIO_INPUT) */
+		if (BROADCAST_SOURCE_LIFETIME == 0U) {
+			k_sleep(K_FOREVER);
+		}
+
 		printk("Waiting %u seconds before stopped\n", BROADCAST_SOURCE_LIFETIME);
 		k_sleep(K_SECONDS(BROADCAST_SOURCE_LIFETIME));
 		printk("Stopping broadcast source\n");

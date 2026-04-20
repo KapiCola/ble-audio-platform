@@ -63,12 +63,17 @@
     pinctrl-names = "default", "sleep";
 };
 
+&clock {
+	hfclkaudio-frequency = <12288000>;
+};
+
 &i2s0 {
 	compatible = "nordic,nrf-i2s";
 	status = "okay";
 	pinctrl-0 = <&i2s0_default>;
 	pinctrl-1 = <&i2s0_sleep>;
 	pinctrl-names = "default", "sleep";
+	clock-source = "ACLK";
 };
 
 &pinctrl {
@@ -117,4 +122,3 @@
 		};
 	};
 };
-

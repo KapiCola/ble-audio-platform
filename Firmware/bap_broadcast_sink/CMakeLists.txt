@@ -15,3 +15,10 @@ if (CONFIG_USE_USB_AUDIO_OUTPUT)
   include(${ZEPHYR_BASE}/samples/subsys/usb/common/common.cmake)
   target_sources(app PRIVATE src/usb.c)
 endif()
+
+target_sources_ifdef(CONFIG_USE_I2S_CODEC_OUTPUT app PRIVATE
+  src/codec_output.c
+  src/codec_sgtl5000.c
+  src/i2c_helpers.c
+  src/pmic.c
+)

@@ -132,14 +132,15 @@ static int pmic_init_ldos(void)
     TRY(pmic_reg_write(LDO1_SET_REG, LDO_ENABLE));
     k_msleep(2);
     
+    for (unsigned int voltage = 2U; voltage <= 22U; ++voltage)
+        {
+            TRY(pmic_reg_write(LDO1_VOUT_REG, voltage));
+            k_msleep(10);
+        }
 
     TRY(pmic_reg_write(LDO2_SET_REG, LDO_ENABLE));
     k_msleep(20);
-
-    TRY(pmic_reg_write(LDO1_VOUT_REG, 22U));
-    k_msleep(2);
-    
-
+  
     return 0;
 }
 

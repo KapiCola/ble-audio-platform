@@ -22,6 +22,6 @@ cmake:
   sysbuild: 'true'
 version: '0.1.0'
 west:
-  command: 'C:\ncs\toolchains\c1a76fddb2\opt\bin\Scripts\west build --build-dir d:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard d:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink --pristine --board nrf5340_audio_dk/nrf5340/cpuapp -- -DCONFIG_DEBUG_THREAD_INFO=y -DCONF_FILE=prj.conf -DEXTRA_CONF_FILE=boards/nrf5340_audio_dk_nrf5340_cpuapp.conf -DDTC_OVERLAY_FILE=app.overlay -DEXTRA_DTC_OVERLAY_FILE=Custom_Board.overlay'
+  command: 'C:\ncs\toolchains\c1a76fddb2\opt\bin\Scripts\west build --build-dir d:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard d:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink --pristine --board nrf5340_audio_dk/nrf5340/cpuapp -- -DEXTRA_CONF_FILE=boards/nrf5340_audio_dk_nrf5340_cpuapp.conf -DCONF_FILE=prj.conf -DEXTRA_DTC_OVERLAY_FILE=Custom_Board.overlay -DDTC_OVERLAY_FILE=app.overlay -DDEBUG_THREAD_INFO=On -DCONFIG_DEBUG_THREAD_INFO=y -Dbap_broadcast_sink_DEBUG_THREAD_INFO=On -Dhci_ipc_DEBUG_THREAD_INFO=Off'
   topdir: 'c:\ncs\v3.1.1'
   version: '1.4.0'

@@ -77,6 +77,19 @@
     pinctrl-names = "default", "sleep";
 };
 
+&clock {
+	hfclkaudio-frequency = <12288000>;
+};
+
+&i2s0 {
+	compatible = "nordic,nrf-i2s";
+	status = "okay";
+	pinctrl-0 = <&i2s0_default>;
+	pinctrl-1 = <&i2s0_sleep>;
+	pinctrl-names = "default", "sleep";
+	clock-source = "ACLK";
+};
+
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
@@ -91,4 +104,23 @@
                     <NRF_PSEL(TWIM_SDA, 1, 2)>;
         };
     };
+
+	i2s0_default: i2s0_default {
+		group1 {
+			psels = <NRF_PSEL(I2S_SCK_M, 0, 14)>,
+				<NRF_PSEL(I2S_LRCK_M, 0, 16)>,
+				<NRF_PSEL(I2S_SDOUT, 0, 13)>,
+				<NRF_PSEL(I2S_SDIN, 0, 15)>;
+		};
+	};
+
+	i2s0_sleep: i2s0_sleep {
+		group1 {
+			psels = <NRF_PSEL(I2S_SCK_M, 0, 14)>,
+				<NRF_PSEL(I2S_LRCK_M, 0, 16)>,
+				<NRF_PSEL(I2S_SDOUT, 0, 13)>,
+				<NRF_PSEL(I2S_SDIN, 0, 15)>;
+			low-power-enable;
+		};
+	};
 };

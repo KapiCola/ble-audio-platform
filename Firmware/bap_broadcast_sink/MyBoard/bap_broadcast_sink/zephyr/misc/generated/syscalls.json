@@ -225,6 +225,86 @@
     ],
     [
         [
+            "int i2c_configure",
+            "const struct device *dev, uint32_t dev_config"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2c_get_config",
+            "const struct device *dev, uint32_t *dev_config"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2c_transfer",
+            "const struct device *dev,\n\t\t\t   struct i2c_msg *msgs, uint8_t num_msgs,\n\t\t\t   uint16_t addr"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2c_recover_bus",
+            "const struct device *dev"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2c_target_driver_register",
+            "const struct device *dev"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2c_target_driver_unregister",
+            "const struct device *dev"
+        ],
+        "i2c.h",
+        true
+    ],
+    [
+        [
+            "int i2s_configure",
+            "const struct device *dev, enum i2s_dir dir,\n\t\t\t    const struct i2s_config *cfg"
+        ],
+        "i2s.h",
+        true
+    ],
+    [
+        [
+            "int i2s_buf_read",
+            "const struct device *dev, void *buf, size_t *size"
+        ],
+        "i2s.h",
+        true
+    ],
+    [
+        [
+            "int i2s_buf_write",
+            "const struct device *dev, void *buf, size_t size"
+        ],
+        "i2s.h",
+        true
+    ],
+    [
+        [
+            "int i2s_trigger",
+            "const struct device *dev, enum i2s_dir dir,\n\t\t\t  enum i2s_trigger_cmd cmd"
+        ],
+        "i2s.h",
+        true
+    ],
+    [
+        [
             "int mbox_send",
             "const struct device *dev, mbox_channel_id_t channel_id,\n\t\t\tconst struct mbox_msg *msg"
         ],
@@ -2605,86 +2685,6 @@
             "const struct device *dev"
         ],
         "hwspinlock.h",
-        false
-    ],
-    [
-        [
-            "int i2c_configure",
-            "const struct device *dev, uint32_t dev_config"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2c_get_config",
-            "const struct device *dev, uint32_t *dev_config"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2c_transfer",
-            "const struct device *dev,\n\t\t\t   struct i2c_msg *msgs, uint8_t num_msgs,\n\t\t\t   uint16_t addr"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2c_recover_bus",
-            "const struct device *dev"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2c_target_driver_register",
-            "const struct device *dev"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2c_target_driver_unregister",
-            "const struct device *dev"
-        ],
-        "i2c.h",
-        false
-    ],
-    [
-        [
-            "int i2s_configure",
-            "const struct device *dev, enum i2s_dir dir,\n\t\t\t    const struct i2s_config *cfg"
-        ],
-        "i2s.h",
-        false
-    ],
-    [
-        [
-            "int i2s_buf_read",
-            "const struct device *dev, void *buf, size_t *size"
-        ],
-        "i2s.h",
-        false
-    ],
-    [
-        [
-            "int i2s_buf_write",
-            "const struct device *dev, void *buf, size_t size"
-        ],
-        "i2s.h",
-        false
-    ],
-    [
-        [
-            "int i2s_trigger",
-            "const struct device *dev, enum i2s_dir dir,\n\t\t\t  enum i2s_trigger_cmd cmd"
-        ],
-        "i2s.h",
         false
     ],
     [

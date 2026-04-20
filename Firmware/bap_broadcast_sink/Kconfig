@@ -55,6 +55,7 @@ config ENABLE_LC3
 config USE_USB_AUDIO_OUTPUT
 	bool "Use USB Audio as output"
 	depends on ENABLE_LC3
+	depends on !USE_I2S_CODEC_OUTPUT
 	select USB_DEVICE_STACK_NEXT
 	select USBD_AUDIO2_CLASS
 	select RING_BUFFER
@@ -63,6 +64,16 @@ config USE_USB_AUDIO_OUTPUT
 	  audio to e.g. speakers that are also USB peripherals, but can be connected to e.g. a
 	  phone or PC as a USB-in device (such as a USB microphone).
 	  USB audio only supports a single audio channel.
+
+config USE_I2S_CODEC_OUTPUT
+	bool "Use I2S codec as output"
+	depends on ENABLE_LC3
+	select I2C
+	select I2S
+	help
+	  Enables output of decoded PCM audio to an external codec through I2S.
+	  This is intended for hardware variants using the SGTL5000 codec and
+	  companion PMIC configuration from the nrf5340_audio_dk based setup.
 
 config USE_SPECIFIC_BROADCAST_CHANNEL
 	bool "Use specific Broadcast Channel Audio Location"

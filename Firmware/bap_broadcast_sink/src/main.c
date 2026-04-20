@@ -33,11 +33,14 @@
 #include <zephyr/toolchain.h>
 
 #include "lc3.h"
+#include "codec_output.h"
 #include "stream_rx.h"
 #include "usb.h"
 
 BUILD_ASSERT(IS_ENABLED(CONFIG_SCAN_SELF) || IS_ENABLED(CONFIG_SCAN_OFFLOAD),
 	     "Either SCAN_SELF or SCAN_OFFLOAD must be enabled");
+BUILD_ASSERT(IS_ENABLED(CONFIG_ENABLE_LC3),
+	     "48 kHz broadcast reception requires CONFIG_ENABLE_LC3 on an FPU-capable supported board");
 
 #define SEM_TIMEOUT                 K_SECONDS(60)
 #define BROADCAST_ASSISTANT_TIMEOUT K_SECONDS(120) /* 2 minutes */
@@ -54,6 +57,14 @@ BUILD_ASSERT(IS_ENABLED(CONFIG_SCAN_SELF) || IS_ENABLED(CONFIG_SCAN_OFFLOAD),
 #define PA_SYNC_SKIP                5
 #define NAME_LEN                    sizeof(CONFIG_TARGET_BROADCAST_NAME) + 1
 #define BROADCAST_DATA_ELEMENT_SIZE sizeof(int16_t)
+#define LC3_FREQ_CAPABILITIES                                                                      \
+	(BT_AUDIO_CODEC_CAP_FREQ_16KHZ | BT_AUDIO_CODEC_CAP_FREQ_24KHZ |                          \
+	 BT_AUDIO_CODEC_CAP_FREQ_32KHZ | BT_AUDIO_CODEC_CAP_FREQ_48KHZ)
+#define LC3_DURATION_CAPABILITIES                                                                  \
+	(BT_AUDIO_CODEC_CAP_DURATION_7_5 | BT_AUDIO_CODEC_CAP_DURATION_10)
+#define LC3_MIN_OCTETS_PER_FRAME   40U
+/* Covers the highest 48 kHz BAP broadcast preset (48_6_x). */
+#define LC3_MAX_OCTETS_PER_FRAME   155U
 
 static K_SEM_DEFINE(sem_broadcast_sink_stopped, 0U, 1U);
 static K_SEM_DEFINE(sem_connected, 0U, 1U);
@@ -85,9 +96,8 @@ static struct bt_conn *broadcast_assistant_conn;
 static struct bt_le_ext_adv *ext_adv;
 
 static const struct bt_audio_codec_cap codec_cap = BT_AUDIO_CODEC_CAP_LC3(
-	BT_AUDIO_CODEC_CAP_FREQ_16KHZ | BT_AUDIO_CODEC_CAP_FREQ_24KHZ,
-	BT_AUDIO_CODEC_CAP_DURATION_10, BT_AUDIO_CODEC_CAP_CHAN_COUNT_SUPPORT(1), 40u, 60u,
-	CONFIG_MAX_CODEC_FRAMES_PER_SDU,
+	LC3_FREQ_CAPABILITIES, LC3_DURATION_CAPABILITIES, BT_AUDIO_CODEC_CAP_CHAN_COUNT_SUPPORT(1),
+	LC3_MIN_OCTETS_PER_FRAME, LC3_MAX_OCTETS_PER_FRAME, CONFIG_MAX_CODEC_FRAMES_PER_SDU,
 	(BT_AUDIO_CONTEXT_TYPE_CONVERSATIONAL | BT_AUDIO_CONTEXT_TYPE_MEDIA));
 
 /**
@@ -127,6 +137,8 @@ struct base_subgroup_data {
  */
 struct base_data {
 	struct base_subgroup_data subgroup_bis[CONFIG_BT_BAP_BASS_MAX_SUBGROUPS];
+	uint32_t subgroup_freq_hz[CONFIG_BT_BAP_BASS_MAX_SUBGROUPS];
+	uint32_t presentation_delay_us;
 	uint8_t subgroup_cnt;
 };
 
@@ -268,6 +280,14 @@ static bool subgroup_get_valid_bis_indexes_cb(const struct bt_bap_base_subgroup 
 		goto next_subgroup;
 	}
 
+	err = bt_audio_codec_cfg_get_freq(&codec_cfg);
+	if (err >= 0) {
+		err = bt_audio_codec_cfg_freq_to_freq_hz(err);
+		if (err > 0) {
+			data->subgroup_freq_hz[data->subgroup_cnt] = (uint32_t)err;
+		}
+	}
+
 	/* Get all BIS indexes for subgroup */
 	err = bt_bap_base_subgroup_get_bis_indexes(subgroup,
 						   &base_subgroup_bis->bis_index_bitfield);
@@ -330,6 +350,12 @@ static void base_recv_cb(struct bt_bap_broadcast_sink *sink, const struct bt_bap
 	       bt_bap_base_get_subgroup_count(base), sink);
 
 	(void)memset(&base_recv_data, 0, sizeof(base_recv_data));
+
+	err = bt_bap_base_get_pres_delay(base);
+	if (err >= 0) {
+		base_recv_data.presentation_delay_us = (uint32_t)err;
+		printk("BASE presentation delay: %u us\n", base_recv_data.presentation_delay_us);
+	}
 
 	/* Get BIS index data for each subgroup */
 	err = bt_bap_base_foreach_subgroup(base, subgroup_get_valid_bis_indexes_cb,
@@ -897,7 +923,11 @@ static int init(void)
 	}
 
 	if (IS_ENABLED(CONFIG_USE_USB_AUDIO_OUTPUT)) {
-		usb_init();
+		err = usb_init();
+		if (err != 0) {
+			printk("USB init failed (err %d)\n", err);
+			return err;
+		}
 	}
 
 	return 0;
@@ -918,6 +948,15 @@ static int reset(void)
 	(void)memset(&broadcaster_info, 0, sizeof(broadcaster_info));
 	(void)memset(&broadcaster_addr, 0, sizeof(broadcaster_addr));
 	broadcaster_broadcast_id = BT_BAP_INVALID_BROADCAST_ID;
+
+	if (IS_ENABLED(CONFIG_USE_I2S_CODEC_OUTPUT)) {
+		err = codec_output_stop();
+		if (err != 0) {
+			printk("Stopping I2S codec output failed (err %d)\n", err);
+
+			return err;
+		}
+	}
 
 	if (broadcast_sink != NULL) {
 		err = bt_bap_broadcast_sink_delete(broadcast_sink);
@@ -1278,6 +1317,29 @@ wait_for_pa_sync:
 		if (err != 0) {
 			printk("sem_syncable timed out, resetting\n");
 			continue;
+		}
+
+		if (IS_ENABLED(CONFIG_USE_I2S_CODEC_OUTPUT)) {
+			uint32_t output_rate_hz = 0U;
+
+			for (uint8_t i = 0U; i < base_recv_data.subgroup_cnt; i++) {
+				if (base_recv_data.subgroup_freq_hz[i] != 0U) {
+					output_rate_hz = base_recv_data.subgroup_freq_hz[i];
+					break;
+				}
+			}
+
+			if (output_rate_hz == 0U) {
+				printk("Unable to determine output sample rate from BASE\n");
+				continue;
+			}
+
+			err = codec_output_init(output_rate_hz,
+						base_recv_data.presentation_delay_us);
+			if (err != 0) {
+				printk("I2S codec output init failed (err %d)\n", err);
+				continue;
+			}
 		}
 
 		/* sem_broadcast_code_received is also given if the

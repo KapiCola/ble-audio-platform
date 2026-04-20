@@ -99,6 +99,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/bap_broadcast_sink/zephyr/drivers/i2c/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/bap_broadcast_sink/zephyr/drivers/i2s/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/bap_broadcast_sink/zephyr/drivers/mbox/cmake_install.cmake")
 endif()
 

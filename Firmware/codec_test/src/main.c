@@ -6,7 +6,7 @@
 #include "i2c_helpers.h"
 #include "codec_sgtl5000.h"
 
-#define SAMPLE_RATE 48000
+#define SAMPLE_RATE 32000
 #define BLOCK_SIZE 2048
 #define BLOCK_BYTES (BLOCK_SIZE * sizeof(int16_t))
 #define NUM_BLOCKS 32

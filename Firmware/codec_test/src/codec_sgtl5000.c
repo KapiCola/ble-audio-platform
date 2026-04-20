@@ -106,9 +106,9 @@ void codec_init(void)
 
         //-------------------------Other-----------------------------
 
-        // Configure SYS_FS clock to 48 kHz (bits 3:2)
-        // Configure MCLK_FREQ to 256*Fs (bits 1:0)
-        codec_mod(CHIP_CLK_CTRL, ~0xF, 0x8);
+        // Configure SYS_FS clock to 32 kHz (bits 3:2)
+        // Configure MCLK_FREQ to 384*Fs (bits 1:0)
+        codec_mod(CHIP_CLK_CTRL, ~0xF, 0x1);
 
         // Configure the I2S in slave mode (bit 7)
         // Data length 16 bit

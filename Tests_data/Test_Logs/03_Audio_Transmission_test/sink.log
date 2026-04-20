@@ -1,0 +1,224 @@
+*** Booting nRF Connect SDK v3.1.1-e2a97fe2578a ***
+*** Using Zephyr OS v4.1.99-ff8f0c579eeb ***
+[00:00:01.604,583] <wrn> bt_hci_core: Num of Controller's ACL packets != ACL bt_conn_tx contexts (7 != 3)
+[00:00:01.604,614] <wrn> bt_hci_core: Num of Controller's ISO packets != ISO bt_conn_tx contexts(8 != 1)
+[00:00:01.608,093] <inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)
+[00:00:01.608,123] <inf> bt_hci_core: HW Variant: nRF53x (0x0003)
+[00:00:01.608,154] <inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 4.1 Build 99
+[00:00:01.610,473] <inf> bt_hci_core: HCI transport: IPC
+[00:00:01.610,565] <inf> bt_hci_core: Identity: F2:08:1F:05:2D:4F (random)
+[00:00:01.610,595] <inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x0059
+[00:00:01.610,626] <inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff
+Bluetooth initialized
+[00:00:01.610,778] <inf> lc3: LC3 initialized
+Reset
+Starting advertising
+Waiting for Broadcast Assistant
+No Broadcast Assistant connected
+Scanning for broadcast sources
+Waiting for Broadcaster
+Found broadcaster with ID 0x123456 and addr 05:62:96:28:1B:39 (random) and sid 0x00
+broadcaster_broadcast_id = 0x123456
+Attempting to PA sync to the broadcaster with id 0x123456
+Waiting for PA synced
+PA sync 0x2000802c synced for broadcast sink with broadcast ID 0x123456
+Broadcast source PA synced, creating Broadcast Sink
+Receive state updated, pa sync state: 2, encrypt_state 0
+Broadcast Sink created, waiting for BASE
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000000
+Received BASE with 1 subgroups from broadcast sink 0x200085fc
+BASE presentation delay: 40000 us
+Channel allocation (subgroup level) 0x00000003
+BIS index 0x00000001 allocation = 0x00000001
+BIS index 0x00000002 allocation = 0x00000002
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+BASE received, waiting for syncable
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+Broadcast sink (0x200085fc) is syncable, BIG not encrypted
+[00:00:12.302,642] <inf> i2s_nrfx: I2S MCK frequency: 1024000, actual PCM rate: 32000
+Waiting for broadcast code
+Waiting for BIS sync request
+Syncing to broadcast with bitfield: 0x00000003, stream_count = 2
+Waiting for stream(s) started
+Stream 0x20002a18 connected
+Stream 0x20002a18 started
+[00:00:12.364,837] <inf> lc3: Initializing the LC3 decoder with 10000 us duration and 32000 Hz frequency
+[00:00:12.365,509] <inf> lc3: Initialized LC3 decoder for 0x20002a18
+[00:00:12.365,539] <inf> lc3: Setting output left stream to 0x20002a18
+Stream 0x20004de0 connected
+Stream 0x20004de0 started
+[00:00:12.366,027] <inf> lc3: Initializing the LC3 decoder with 10000 us duration and 32000 Hz frequency
+[00:00:12.366,729] <inf> lc3: Initialized LC3 decoder for 0x20004de0
+[00:00:12.366,729] <inf> lc3: Setting output right stream to 0x20004de0
+Receive state updated, pa sync state: 2, encrypt_state 0
+subgroup 0 bis_sync: 0x00000003
+Broadcast sink 0x200085fc started
+Waiting for PA disconnected
+[00:00:12.378,112] <inf> stream_rx: [0]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 0 and ts 10760856: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:12.378,295] <inf> stream_rx: [0]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 0 and ts 10760856: Valid 0 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:12.492,034] <inf> codec_output: Starting I2S TX with 12 buffered frame blocks (120000 us target)
+[00:00:22.378,234] <inf> stream_rx: [1000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 1000 and ts 20760949: Valid 1000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:22.378,387] <inf> stream_rx: [1000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 1000 and ts 20760949: Valid 1000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:32.378,295] <inf> stream_rx: [2000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 2000 and ts 30761040: Valid 2000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:32.378,448] <inf> stream_rx: [2000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 2000 and ts 30761040: Valid 2000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:42.378,387] <inf> stream_rx: [3000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 3000 and ts 40761132: Valid 3000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:42.378,540] <inf> stream_rx: [3000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 3000 and ts 40761132: Valid 3000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:52.378,509] <inf> stream_rx: [4000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 4000 and ts 50761222: Valid 4000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:00:52.378,662] <inf> stream_rx: [4000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 4000 and ts 50761222: Valid 4000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:02.378,601] <inf> stream_rx: [5000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 5000 and ts 60761313: Valid 5000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:02.378,753] <inf> stream_rx: [5000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 5000 and ts 60761313: Valid 5000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:12.378,631] <inf> stream_rx: [6000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 6000 and ts 70761403: Valid 6000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:12.378,814] <inf> stream_rx: [6000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 6000 and ts 70761403: Valid 6000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:22.378,723] <inf> stream_rx: [7000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 7000 and ts 80761495: Valid 7000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:22.378,906] <inf> stream_rx: [7000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 7000 and ts 80761495: Valid 7000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:32.378,845] <inf> stream_rx: [8000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 8000 and ts 90761584: Valid 8000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:32.379,028] <inf> stream_rx: [8000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 8000 and ts 90761584: Valid 8000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:42.378,936] <inf> stream_rx: [9000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 9000 and ts 100761674: Valid 9000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:42.379,089] <inf> stream_rx: [9000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 9000 and ts 100761674: Valid 9000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:52.378,997] <inf> stream_rx: [10000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 10000 and ts 110761764: Valid 10000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:01:52.379,180] <inf> stream_rx: [10000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 10000 and ts 110761764: Valid 10000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:02.379,089] <inf> stream_rx: [11000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 11000 and ts 120761854: Valid 11000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:02.379,272] <inf> stream_rx: [11000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 11000 and ts 120761854: Valid 11000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:12.379,211] <inf> stream_rx: [12000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 12000 and ts 130761944: Valid 12000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:12.379,394] <inf> stream_rx: [12000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 12000 and ts 130761944: Valid 12000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:22.379,302] <inf> stream_rx: [13000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 13000 and ts 140762035: Valid 13000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:22.379,486] <inf> stream_rx: [13000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 13000 and ts 140762035: Valid 13000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:32.379,364] <inf> stream_rx: [14000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 14000 and ts 150762126: Valid 14000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:32.379,547] <inf> stream_rx: [14000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 14000 and ts 150762126: Valid 14000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:42.379,486] <inf> stream_rx: [15000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 15000 and ts 160762216: Valid 15000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:42.379,638] <inf> stream_rx: [15000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 15000 and ts 160762216: Valid 15000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:52.379,577] <inf> stream_rx: [16000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 16000 and ts 170762307: Valid 16000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:02:52.379,760] <inf> stream_rx: [16000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 16000 and ts 170762307: Valid 16000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:02.379,638] <inf> stream_rx: [17000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 17000 and ts 180762398: Valid 17000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:02.379,821] <inf> stream_rx: [17000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 17000 and ts 180762398: Valid 17000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:12.379,730] <inf> stream_rx: [18000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 18000 and ts 190762487: Valid 18000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:12.379,913] <inf> stream_rx: [18000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 18000 and ts 190762487: Valid 18000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:22.379,852] <inf> stream_rx: [19000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 19000 and ts 200762577: Valid 19000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:22.380,035] <inf> stream_rx: [19000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 19000 and ts 200762577: Valid 19000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:32.379,943] <inf> stream_rx: [20000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 20000 and ts 210762667: Valid 20000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:32.380,126] <inf> stream_rx: [20000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 20000 and ts 210762667: Valid 20000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:42.380,004] <inf> stream_rx: [21000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 21000 and ts 220762758: Valid 21000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:42.380,187] <inf> stream_rx: [21000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 21000 and ts 220762758: Valid 21000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:52.380,126] <inf> stream_rx: [22000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 22000 and ts 230762848: Valid 22000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:03:52.380,310] <inf> stream_rx: [22000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 22000 and ts 230762848: Valid 22000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:02.380,218] <inf> stream_rx: [23000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 23000 and ts 240762937: Valid 23000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:02.380,401] <inf> stream_rx: [23000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 23000 and ts 240762937: Valid 23000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:12.380,310] <inf> stream_rx: [24000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 24000 and ts 250763028: Valid 24000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:12.380,493] <inf> stream_rx: [24000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 24000 and ts 250763028: Valid 24000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:22.380,340] <inf> stream_rx: [25000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 25000 and ts 260763118: Valid 25000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:22.380,523] <inf> stream_rx: [25000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 25000 and ts 260763118: Valid 25000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:32.380,493] <inf> stream_rx: [26000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 26000 and ts 270763208: Valid 26000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:32.380,676] <inf> stream_rx: [26000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 26000 and ts 270763207: Valid 26000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:42.380,584] <inf> stream_rx: [27000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 27000 and ts 280763298: Valid 27000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:42.380,737] <inf> stream_rx: [27000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 27000 and ts 280763298: Valid 27000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:52.380,645] <inf> stream_rx: [28000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 28000 and ts 290763387: Valid 28000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:04:52.380,798] <inf> stream_rx: [28000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 28000 and ts 290763387: Valid 28000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:02.380,767] <inf> stream_rx: [29000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 29000 and ts 300763478: Valid 29000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:02.380,920] <inf> stream_rx: [29000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 29000 and ts 300763478: Valid 29000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:12.380,859] <inf> stream_rx: [30000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 30000 and ts 310763569: Valid 30000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:12.381,011] <inf> stream_rx: [30000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 30000 and ts 310763569: Valid 30000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:22.380,920] <inf> stream_rx: [31000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 31000 and ts 320763658: Valid 31000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:22.381,103] <inf> stream_rx: [31000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 31000 and ts 320763658: Valid 31000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:32.380,981] <inf> stream_rx: [32000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 32000 and ts 330763748: Valid 32000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:32.381,164] <inf> stream_rx: [32000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 32000 and ts 330763748: Valid 32000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:42.381,072] <inf> stream_rx: [33000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 33000 and ts 340763840: Valid 33000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:42.381,256] <inf> stream_rx: [33000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 33000 and ts 340763840: Valid 33000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:52.381,195] <inf> stream_rx: [34000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 34000 and ts 350763930: Valid 34000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:05:52.381,378] <inf> stream_rx: [34000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 34000 and ts 350763930: Valid 34000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:02.381,256] <inf> stream_rx: [35000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 35000 and ts 360764020: Valid 35000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:02.381,439] <inf> stream_rx: [35000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 35000 and ts 360764020: Valid 35000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:12.381,347] <inf> stream_rx: [36000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 36000 and ts 370764110: Valid 36000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:12.381,530] <inf> stream_rx: [36000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 36000 and ts 370764110: Valid 36000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:22.381,469] <inf> stream_rx: [37000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 37000 and ts 380764200: Valid 37000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:22.381,652] <inf> stream_rx: [37000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 37000 and ts 380764200: Valid 37000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:32.381,561] <inf> stream_rx: [38000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 38000 and ts 390764292: Valid 38000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:32.381,744] <inf> stream_rx: [38000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 38000 and ts 390764292: Valid 38000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:42.381,622] <inf> stream_rx: [39000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 39000 and ts 400764381: Valid 39000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:42.381,805] <inf> stream_rx: [39000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 39000 and ts 400764381: Valid 39000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:52.381,744] <inf> stream_rx: [40000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 40000 and ts 410764471: Valid 40000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:06:52.381,927] <inf> stream_rx: [40000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 40000 and ts 410764471: Valid 40000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:02.381,835] <inf> stream_rx: [41000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 41000 and ts 420764563: Valid 41000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:02.381,988] <inf> stream_rx: [41000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 41000 and ts 420764563: Valid 41000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:12.381,927] <inf> stream_rx: [42000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 42000 and ts 430764652: Valid 42000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:12.382,110] <inf> stream_rx: [42000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 42000 and ts 430764653: Valid 42000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:22.381,988] <inf> stream_rx: [43000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 43000 and ts 440764743: Valid 43000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:22.382,141] <inf> stream_rx: [43000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 43000 and ts 440764743: Valid 43000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:32.382,110] <inf> stream_rx: [44000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 44000 and ts 450764833: Valid 44000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:32.382,293] <inf> stream_rx: [44000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 44000 and ts 450764833: Valid 44000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:42.382,202] <inf> stream_rx: [45000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 45000 and ts 460764924: Valid 45000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:42.382,385] <inf> stream_rx: [45000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 45000 and ts 460764924: Valid 45000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:52.382,293] <inf> stream_rx: [46000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 46000 and ts 470765016: Valid 46000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:07:52.382,476] <inf> stream_rx: [46000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 46000 and ts 470765016: Valid 46000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:02.382,324] <inf> stream_rx: [47000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 47000 and ts 480765106: Valid 47000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:02.382,507] <inf> stream_rx: [47000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 47000 and ts 480765106: Valid 47000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:12.382,446] <inf> stream_rx: [48000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 48000 and ts 490765199: Valid 48000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:12.382,629] <inf> stream_rx: [48000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 48000 and ts 490765199: Valid 48000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:22.382,537] <inf> stream_rx: [49000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 49000 and ts 500765291: Valid 49000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:22.382,720] <inf> stream_rx: [49000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 49000 and ts 500765291: Valid 49000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:32.382,659] <inf> stream_rx: [50000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 50000 and ts 510765383: Valid 50000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:32.382,843] <inf> stream_rx: [50000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 50000 and ts 510765383: Valid 50000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:42.382,720] <inf> stream_rx: [51000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 51000 and ts 8765473: Valid 51000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:42.382,904] <inf> stream_rx: [51000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 51000 and ts 8765473: Valid 51000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:52.382,843] <inf> stream_rx: [52000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 52000 and ts 18765565: Valid 52000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:08:52.383,026] <inf> stream_rx: [52000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 52000 and ts 18765565: Valid 52000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:02.382,934] <inf> stream_rx: [53000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 53000 and ts 28765657: Valid 53000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:02.383,117] <inf> stream_rx: [53000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 53000 and ts 28765657: Valid 53000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:12.383,026] <inf> stream_rx: [54000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 54000 and ts 38765748: Valid 54000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:12.383,209] <inf> stream_rx: [54000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 54000 and ts 38765748: Valid 54000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:22.383,087] <inf> stream_rx: [55000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 55000 and ts 48765841: Valid 55000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:22.383,239] <inf> stream_rx: [55000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 55000 and ts 48765841: Valid 55000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:32.383,178] <inf> stream_rx: [56000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 56000 and ts 58765933: Valid 56000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:32.383,361] <inf> stream_rx: [56000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 56000 and ts 58765933: Valid 56000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:42.383,270] <inf> stream_rx: [57000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 57000 and ts 68766024: Valid 57000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:42.383,453] <inf> stream_rx: [57000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 57000 and ts 68766024: Valid 57000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:52.383,392] <inf> stream_rx: [58000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 58000 and ts 78766115: Valid 58000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:09:52.383,575] <inf> stream_rx: [58000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 58000 and ts 78766115: Valid 58000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:02.383,483] <inf> stream_rx: [59000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 59000 and ts 88766206: Valid 59000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:02.383,666] <inf> stream_rx: [59000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 59000 and ts 88766206: Valid 59000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:02.713,409] <inf> stream_rx: [59033]: Incoming audio on stream 0x20002a18 len 0, flags 0x0A, seq_num 59033 and ts 89096212: Valid 59033 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:12.383,544] <inf> stream_rx: [60000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 60000 and ts 98766298: Valid 59999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:12.383,728] <inf> stream_rx: [60000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 60000 and ts 98766298: Valid 60000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:22.383,666] <inf> stream_rx: [61000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 61000 and ts 108766388: Valid 60999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:22.383,850] <inf> stream_rx: [61000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 61000 and ts 108766388: Valid 61000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:32.383,758] <inf> stream_rx: [62000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 62000 and ts 118766480: Valid 61999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:32.383,941] <inf> stream_rx: [62000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 62000 and ts 118766480: Valid 62000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:42.383,850] <inf> stream_rx: [63000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 63000 and ts 128766571: Valid 62999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:42.384,033] <inf> stream_rx: [63000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 63000 and ts 128766571: Valid 63000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:52.383,911] <inf> stream_rx: [64000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 64000 and ts 138766663: Valid 63999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:10:52.384,063] <inf> stream_rx: [64000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 64000 and ts 138766663: Valid 64000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:02.384,033] <inf> stream_rx: [65000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 65000 and ts 148766755: Valid 64999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:02.384,216] <inf> stream_rx: [65000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 65000 and ts 148766755: Valid 65000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:12.384,124] <inf> stream_rx: [66000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 464 and ts 158766848: Valid 65999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:12.384,307] <inf> stream_rx: [66000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 464 and ts 158766848: Valid 66000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:22.384,216] <inf> stream_rx: [67000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 1464 and ts 168766940: Valid 66999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:22.384,399] <inf> stream_rx: [67000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 1464 and ts 168766940: Valid 67000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:32.384,277] <inf> stream_rx: [68000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 2464 and ts 178767032: Valid 67999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:32.384,460] <inf> stream_rx: [68000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 2464 and ts 178767032: Valid 68000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:42.384,368] <inf> stream_rx: [69000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 3464 and ts 188767125: Valid 68999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:42.384,582] <inf> stream_rx: [69000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 3464 and ts 188767125: Valid 69000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:52.384,460] <inf> stream_rx: [70000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 4464 and ts 198767217: Valid 69999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:11:52.384,643] <inf> stream_rx: [70000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 4464 and ts 198767217: Valid 70000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:02.384,582] <inf> stream_rx: [71000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 5464 and ts 208767310: Valid 70999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:02.384,765] <inf> stream_rx: [71000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 5464 and ts 208767310: Valid 71000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:12.384,674] <inf> stream_rx: [72000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 6464 and ts 218767404: Valid 71999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:12.384,857] <inf> stream_rx: [72000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 6464 and ts 218767404: Valid 72000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:22.384,765] <inf> stream_rx: [73000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 7464 and ts 228767497: Valid 72999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:22.384,948] <inf> stream_rx: [73000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 7464 and ts 228767497: Valid 73000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:32.384,826] <inf> stream_rx: [74000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 8464 and ts 238767590: Valid 73999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:32.385,009] <inf> stream_rx: [74000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 8464 and ts 238767590: Valid 74000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:42.384,918] <inf> stream_rx: [75000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 9464 and ts 248767683: Valid 74999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:42.385,101] <inf> stream_rx: [75000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 9464 and ts 248767683: Valid 75000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:52.385,040] <inf> stream_rx: [76000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 10464 and ts 258767775: Valid 75999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:12:52.385,223] <inf> stream_rx: [76000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 10464 and ts 258767775: Valid 76000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:02.385,101] <inf> stream_rx: [77000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 11464 and ts 268767866: Valid 76999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:02.385,284] <inf> stream_rx: [77000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 11464 and ts 268767866: Valid 77000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:12.385,223] <inf> stream_rx: [78000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 12464 and ts 278767960: Valid 77999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:12.385,406] <inf> stream_rx: [78000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 12464 and ts 278767960: Valid 78000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:22.385,284] <inf> stream_rx: [79000]: Incoming audio on stream 0x20002a18 len 80, flags 0x09, seq_num 13464 and ts 288768053: Valid 78999 | Error 1 | Loss 0 | Dup TS 0 | Dup PSN 0
+[00:13:22.385,467] <inf> stream_rx: [79000]: Incoming audio on stream 0x20004de0 len 80, flags 0x09, seq_num 13464 and ts 288768053: Valid 79000 | Error 0 | Loss 0 | Dup TS 0 | Dup PSN 0

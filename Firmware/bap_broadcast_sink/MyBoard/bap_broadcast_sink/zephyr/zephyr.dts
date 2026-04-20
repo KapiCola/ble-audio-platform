@@ -178,10 +178,11 @@
 
 			/* node '/soc/peripheral@50000000/clock@5000' defined in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:64 */
 			clock: clock@5000 {
-				compatible = "nordic,nrf-clock"; /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:65 */
-				reg = < 0x5000 0x1000 >;         /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:66 */
-				interrupts = < 0x5 0x1 >;        /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:67 */
-				status = "okay";                 /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:68 */
+				compatible = "nordic,nrf-clock";     /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:65 */
+				reg = < 0x5000 0x1000 >;             /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:66 */
+				interrupts = < 0x5 0x1 >;            /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:67 */
+				status = "okay";                     /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:68 */
+				hfclkaudio-frequency = < 0xbb8000 >; /* in ./Custom_Board.overlay:81 */
 			};
 
 			/* node '/soc/peripheral@50000000/power@5000' defined in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:71 */
@@ -677,16 +678,17 @@
 
 			/* node '/soc/peripheral@50000000/i2s@28000' defined in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:456 */
 			i2s0: i2s@28000 {
-				compatible = "nordic,nrf-i2s"; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:136 */
+				compatible = "nordic,nrf-i2s"; /* in ./Custom_Board.overlay:85 */
 				#address-cells = < 0x1 >;      /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:458 */
 				#size-cells = < 0x0 >;         /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:459 */
 				reg = < 0x28000 0x1000 >;      /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:460 */
 				interrupts = < 0x28 0x1 >;     /* in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:461 */
-				status = "okay";               /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:137 */
-				pinctrl-0 = < &i2s0_default >; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:138 */
-				pinctrl-1 = < &i2s0_sleep >;   /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:139 */
+				status = "okay";               /* in ./Custom_Board.overlay:86 */
+				pinctrl-0 = < &i2s0_default >; /* in ./Custom_Board.overlay:87 */
+				pinctrl-1 = < &i2s0_sleep >;   /* in ./Custom_Board.overlay:88 */
 				pinctrl-names = "default",
-				                "sleep";       /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:140 */
+				                "sleep";       /* in ./Custom_Board.overlay:89 */
+				clock-source = "ACLK";         /* in ./Custom_Board.overlay:90 */
 			};
 
 			/* node '/soc/peripheral@50000000/mbox@2a000' defined in zephyr\dts\arm\nordic\nrf5340_cpuapp_peripherals.dtsi:465 */
@@ -975,11 +977,14 @@
 
 		/* node '/pin-controller/i2s0_default' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:8 */
 		i2s0_default: i2s0_default {
-			phandle = < 0x10 >; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:138 */
+			phandle = < 0x10 >; /* in ./Custom_Board.overlay:87 */
 
 			/* node '/pin-controller/i2s0_default/group1' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:9 */
 			group1 {
-				psels = < 0x1300000c >;      /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:10 */
+				psels = < 0xd00000e >,
+				        < 0xf000010 >,
+				        < 0x1200000d >,
+				        < 0x1100000f >;      /* in ./Custom_Board.overlay:110 */
 				nordic,drive-mode = < 0x3 >; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:11 */
 			};
 
@@ -994,16 +999,15 @@
 
 		/* node '/pin-controller/i2s0_sleep' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:22 */
 		i2s0_sleep: i2s0_sleep {
-			phandle = < 0x11 >; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common.dtsi:139 */
+			phandle = < 0x11 >; /* in ./Custom_Board.overlay:88 */
 
 			/* node '/pin-controller/i2s0_sleep/group1' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:23 */
 			group1 {
-				psels = < 0x1300000c >,
-				        < 0xd00000e >,
+				psels = < 0xd00000e >,
 				        < 0xf000010 >,
 				        < 0x1200000d >,
-				        < 0x1100000f >; /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:24 */
-				low-power-enable;       /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:29 */
+				        < 0x1100000f >; /* in ./Custom_Board.overlay:119 */
+				low-power-enable;       /* in ./Custom_Board.overlay:123 */
 			};
 		};
 
@@ -1078,7 +1082,7 @@
 			/* node '/pin-controller/i2c1_default/group1' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:80 */
 			group1 {
 				psels = < 0xb000023 >,
-				        < 0xc000022 >; /* in ./Custom_Board.overlay:83 */
+				        < 0xc000022 >; /* in ./Custom_Board.overlay:96 */
 			};
 		};
 
@@ -1089,7 +1093,7 @@
 			/* node '/pin-controller/i2c1_sleep/group1' defined in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:87 */
 			group1 {
 				psels = < 0xb000023 >,
-				        < 0xc000022 >; /* in ./Custom_Board.overlay:90 */
+				        < 0xc000022 >; /* in ./Custom_Board.overlay:103 */
 				low-power-enable;      /* in zephyr\boards\nordic\nrf5340_audio_dk\nrf5340_audio_dk_nrf5340_cpuapp_common-pinctrl.dtsi:90 */
 			};
 		};

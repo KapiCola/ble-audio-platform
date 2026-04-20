@@ -1706,6 +1706,19 @@ zephyr_udc0: &usbd {
     pinctrl-names = "default", "sleep";
 };
 
+&clock {
+ hfclkaudio-frequency = <12288000>;
+};
+
+&i2s0 {
+ compatible = "nordic,nrf-i2s";
+ status = "okay";
+ pinctrl-0 = <&i2s0_default>;
+ pinctrl-1 = <&i2s0_sleep>;
+ pinctrl-names = "default", "sleep";
+ clock-source = "ACLK";
+};
+
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
@@ -1720,6 +1733,25 @@ zephyr_udc0: &usbd {
                     <((((((1) * 32U) + (2)) & 0x1FFU) << 0U) | ((12U & 0xFFU) << 24U))>;
         };
     };
+
+ i2s0_default: i2s0_default {
+  group1 {
+   psels = <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((13U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((15U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((18U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((17U & 0xFFU) << 24U))>;
+  };
+ };
+
+ i2s0_sleep: i2s0_sleep {
+  group1 {
+   psels = <((((((0) * 32U) + (14)) & 0x1FFU) << 0U) | ((13U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (16)) & 0x1FFU) << 0U) | ((15U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (13)) & 0x1FFU) << 0U) | ((18U & 0xFFU) << 24U))>,
+    <((((((0) * 32U) + (15)) & 0x1FFU) << 0U) | ((17U & 0xFFU) << 24U))>;
+   low-power-enable;
+  };
+ };
 };
 # 0 "<command-line>" 2
 # 1 "C:/ncs/v3.1.1/zephyr/misc/empty_file.c"

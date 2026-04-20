@@ -6214,14 +6214,32 @@
 #define DT_N_S_pin_controller_S_i2s0_default_S_group1_PINCTRL_NUM 0
 
 /* Generic property macros: */
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels {318767116 /* 0x1300000c */}
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels {218103822 /* 0xd00000e */, 251658256 /* 0xf000010 */, 301989901 /* 0x1200000d */, 285212687 /* 0x1100000f */}
 #define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_0_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_0 318767116
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM(fn) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0)
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0)
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0, __VA_ARGS__)
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0, __VA_ARGS__)
-#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_LEN 1
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_0 218103822
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_1_EXISTS 1
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_1 251658256
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_2_EXISTS 1
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_2 301989901
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_3_EXISTS 1
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_IDX_3 285212687
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM(fn) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 1) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 2) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 3)
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 1) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 2) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 3)
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0, __VA_ARGS__) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 1, __VA_ARGS__) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 2, __VA_ARGS__) \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 3, __VA_ARGS__)
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 0, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 1, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 2, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
+	fn(DT_N_S_pin_controller_S_i2s0_default_S_group1, psels, 3, __VA_ARGS__)
+#define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_LEN 4
 #define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_psels_EXISTS 1
 #define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_nordic_drive_mode 3
 #define DT_N_S_pin_controller_S_i2s0_default_S_group1_P_nordic_drive_mode_EXISTS 1
@@ -6493,38 +6511,32 @@
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_PINCTRL_NUM 0
 
 /* Generic property macros: */
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels {318767116 /* 0x1300000c */, 218103822 /* 0xd00000e */, 251658256 /* 0xf000010 */, 301989901 /* 0x1200000d */, 285212687 /* 0x1100000f */}
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels {218103822 /* 0xd00000e */, 251658256 /* 0xf000010 */, 301989901 /* 0x1200000d */, 285212687 /* 0x1100000f */}
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_0_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_0 318767116
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_0 218103822
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_1_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_1 218103822
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_1 251658256
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_2_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_2 251658256
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_2 301989901
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_3_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_3 301989901
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_4_EXISTS 1
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_4 285212687
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_IDX_3 285212687
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_FOREACH_PROP_ELEM(fn) fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 0) \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 1) \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 2) \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3) \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 4)
+	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3)
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 0) DT_DEBRACKET_INTERNAL sep \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 1) DT_DEBRACKET_INTERNAL sep \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 2) DT_DEBRACKET_INTERNAL sep \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3) DT_DEBRACKET_INTERNAL sep \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 4)
+	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3)
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 0, __VA_ARGS__) \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 1, __VA_ARGS__) \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 2, __VA_ARGS__) \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3, __VA_ARGS__) \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 4, __VA_ARGS__)
+	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3, __VA_ARGS__)
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 0, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 1, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
 	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 2, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \
-	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 4, __VA_ARGS__)
-#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_LEN 5
+	fn(DT_N_S_pin_controller_S_i2s0_sleep_S_group1, psels, 3, __VA_ARGS__)
+#define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_LEN 4
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_psels_EXISTS 1
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_nordic_drive_mode 0
 #define DT_N_S_pin_controller_S_i2s0_sleep_S_group1_P_nordic_drive_mode_EXISTS 1
@@ -10177,6 +10189,8 @@
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_interrupts_IDX_1_EXISTS 1
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_interrupts_IDX_1 1
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_interrupts_EXISTS 1
+#define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_hfclkaudio_frequency 12288000
+#define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_hfclkaudio_frequency_EXISTS 1
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_status "okay"
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_status_STRING_UNQUOTED okay
 #define DT_N_S_soc_S_peripheral_50000000_S_clock_5000_P_status_STRING_TOKEN okay
@@ -12183,14 +12197,14 @@
 	fn(DT_N_S_soc_S_peripheral_50000000_S_i2s_28000, pinctrl_names, 1, __VA_ARGS__)
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_pinctrl_names_LEN 2
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_pinctrl_names_EXISTS 1
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source "PCLK32M_HFXO"
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_UNQUOTED PCLK32M_HFXO
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_TOKEN PCLK32M_HFXO
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_UPPER_TOKEN PCLK32M_HFXO
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0 "PCLK32M_HFXO"
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source "ACLK"
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_UNQUOTED ACLK
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_TOKEN ACLK
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_STRING_UPPER_TOKEN ACLK
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0 "ACLK"
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0_EXISTS 1
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0_ENUM_IDX 1
-#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0_ENUM_VAL_pclk32m_hfxo_EXISTS 1
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0_ENUM_IDX 2
+#define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_IDX_0_ENUM_VAL_aclk_EXISTS 1
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_peripheral_50000000_S_i2s_28000, clock_source, 0)
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_peripheral_50000000_S_i2s_28000, clock_source, 0)
 #define DT_N_S_soc_S_peripheral_50000000_S_i2s_28000_P_clock_source_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_peripheral_50000000_S_i2s_28000, clock_source, 0, __VA_ARGS__)

@@ -79,6 +79,9 @@ CONFIG_DEBUG_THREAD_INFO:UNINITIALIZED=y
 CONF_FILE:UNINITIALIZED=prj.conf
 
 //No help, variable specified on the command line.
+DEBUG_THREAD_INFO:UNINITIALIZED=On
+
+//No help, variable specified on the command line.
 DTC_OVERLAY_FILE:UNINITIALIZED=app.overlay
 
 //No help, variable specified on the command line.
@@ -96,7 +99,13 @@ ZEPHYR_BASE:PATH=C:/ncs/v3.1.1/zephyr
 //The directory containing a CMake configuration file for Zephyr.
 Zephyr_DIR:PATH=C:/ncs/v3.1.1/zephyr/share/zephyr-package/cmake
 
-hci_ipc_SNIPPET:STRING=bt-ll-sw-split;bt-ll-sw-split;bt-ll-sw-split
+//No help, variable specified on the command line.
+bap_broadcast_sink_DEBUG_THREAD_INFO:UNINITIALIZED=On
+
+//No help, variable specified on the command line.
+hci_ipc_DEBUG_THREAD_INFO:UNINITIALIZED=Off
+
+hci_ipc_SNIPPET:STRING=bt-ll-sw-split
 
 //Value Computed by CMake
 sysbuild_BINARY_DIR:STATIC=D:/Inzynierka_V2/Kody_testowe/bap_broadcast_sink/MyBoard/_sysbuild
